@@ -11,11 +11,11 @@
 /* ======================================= */
 :root {
     /* Colores */
-    --primary-color: #f7b733; /* Dorado/Ámbar de Lujo */
+    --primary-color: #0a0a0a; /* Dorado/Ámbar de Lujo */
     --secondary-color: #fc4a1a; /* Rojo/Naranja de Acento */
-    --text-light: #fcb65a;
+    --text-light: #040007;
     --text-dark: #1f1f1f;
-    --background-dark: #000000f5; /* Fondo Oscuro Profundo */
+    --background-dark: #00000000; /* Fondo Oscuro Profundo */
     --card-bg-light: rgba(255, 255, 255, 0.08); /* Blanco muy transparente para Glassmorphism */
 
     /* Estructura y Efectos */
@@ -35,7 +35,7 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif; /* Tipografía moderna y legible */
-    background-color: var(--background-dark);
+    background-image:url('img\aa2.jpg');
     color: var(--text-light);
     margin: 0;
     padding: 0;
@@ -50,7 +50,7 @@ body {
 }
 
 h1, h2, h3 {
-    color: var(--primary-color);
+    color:#290029;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -59,9 +59,9 @@ h1, h2, h3 {
            CONTENEDOR PRINCIPAL
         ===================================== */
         .page-header {
-            width: 100%;
+            width: 85%;
             /* Degradado radial para un efecto de "escenario" oscuro */
-            background: radial-gradient(circle at 10% 50%, var(--dark-bg), var(--darker-bg) 70%);
+            background: #1acffc31;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,23 +76,50 @@ h1, h2, h3 {
             gap: 20px;
         }
 
-        /* ==================================
-           LOGO (Efecto Antiguo/Glow)
-        ===================================== */
-        .header-logo img {
-            width: 70px; /* Tamaño más grande para impacto */
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--golden-accent); /* Borde dorado */
-            /* Efecto de filtro para un aspecto más rico y antiguo */
-            filter: grayscale(0.1) brightness(1.1) drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
-            transition: transform 0.3s ease;
-        }
+        .header-logo {
+    width: 120px;              /* Ancho mayor para darle forma ovalada */
+    height: 80px;              /* Altura menor para la forma oval */
+    overflow: hidden;
+    border-radius: 50% / 35%;  /* Hace el óvalo (50% horizontal, 35% vertical) */
+    border: 2px solid var(--primary-color);
+    flex-shrink: 0;
+    transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .header-logo img:hover {
-            transform: scale(1.05);
-        }
+/* Imagen dentro del logo */
+.header-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50% / 35%;  /* Mantiene la forma ovalada en la imagen */
+}
+
+/* Efecto hover */
+.header-logo:hover {
+    transform: scale(1.05);
+    border-color:#fc4a1a;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+    .header-logo {
+        width: 90px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo {
+        width: 70px;
+        height: 50px;
+    }
+}
 
         /* ==================================
            TÍTULO (Efecto de Destello Animado)
@@ -137,7 +164,7 @@ h1, h2, h3 {
             text-transform: uppercase;
             font-weight: 700;
             padding: 12px 30px;
-            border-radius: 50px; /* Bordes muy redondeados */
+            border-bottom: 50px; /* Bordes muy redondeados */
             font-size: 1.1em;
             letter-spacing: 1px;
             transition: all 0.3s ease-in-out;
@@ -207,7 +234,7 @@ h1, h2, h3 {
 /* Estilo para el acento dorado en el slogan */
 .logo-slogan span {
     color: var(--secondary-color); /* Dorado brillante */
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.4); /* Sutil brillo */
+    text-shadow: 0 0 5px rgb(255, 217, 0); /* Sutil brillo */
 }
 
 /* Cuando el header se vuelve sólido, el logo también debe lucir bien */
@@ -221,8 +248,8 @@ h1, h2, h3 {
 }
 
 .header-logo {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     overflow: hidden;
     border-radius: 50%;
     border: 2px solid var(--primary-color);
@@ -238,12 +265,12 @@ h1, h2, h3 {
 }
 
 .header-logo:hover {
-    transform: scale(1.1) rotate(5deg);
-    border-color: var(--secondary-color);
+    transform: scale(1.9) radial-gradient(2deg);
+    border-color:rgba(255, 254, 255, 0);
 }
 
 .header-title h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0;
     color: var(--text-light);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -254,9 +281,9 @@ h1, h2, h3 {
     text-decoration: none;
     background-color: var(--secondary-color);
     color: var(--text-light);
-    padding: 8px 20px;
-    border-radius: 50px; /* Forma de píldora */
-    font-weight: 500;
+    padding: 8px 8px;
+    border-bottom: 10px; /* Forma de píldora */
+    font-weight: 50;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
@@ -279,17 +306,27 @@ h1, h2, h3 {
 }
 
 .purchase-panel {
-    /* Estilo Glassmorphism / Dark Glass */
-    background-color: var(--card-bg-light); 
-    backdrop-filter: blur(15px); /* Efecto de desenfoque de fondo */
-    -webkit-backdrop-filter: blur(15px);
+    /* Glassmorphism con fallback */
+    background-color: rgba(252, 252, 252, 0.35); /* translucidez para ver el blur */
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     border-radius: var(--border-radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(4, 0, 12);
     box-shadow: var(--shadow-deep);
-    padding: 30px;
+    padding: 24px;
     width: 100%;
     max-width: 600px;
     margin-top: 20px;
+    box-sizing: border-box;
+}
+
+/* Ajustes para móviles: mejor rendimiento y espacio */
+@media (max-width: 600px) {
+  .purchase-panel {
+    padding: 14px;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
 }
 
 .panel-title {
@@ -512,7 +549,7 @@ button {
     display: inline-block;
     background-color: #2a2a8f;
     color: white;
-    padding: 12px 24px;
+    padding: 10px 14px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
@@ -584,7 +621,7 @@ button {
 <header class="header">
     <div class="container">
         <div class="logo-slogan">
-            Mis Fragancias: <span>jhon dainer arias</span>
+            <h2>jhon dainer arias</h2>
         </div>
         
         <nav>
@@ -599,12 +636,12 @@ button {
                 <img src="img\aa2.jpg" alt="Logo de la Tienda" title="Perfume Shop">
             </div>
             <div class="header-title">
-                <h1>Perfumería Exclusiva</h1>
+                <h3>Perfumería Exclusiva</h3>
             </div>
         </div>
 
-        <a href="catalogo.html" class="btn-inicio-integrado">
-            catalogo
+        <a href="index.html" class="btn-inicio-integrado">
+            inicio
         </a>
         
     </header>
