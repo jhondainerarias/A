@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Perfumes | jhon dainer arias</title>
+    </head>
+    <style> 
+        /* ======================================= */
+/* VARIABLES GLOBALES             */
+/* ======================================= */
+:root {
+    /* Colores */
+    --primary-color: #f7b733; /* Dorado/Ámbar de Lujo */
+    --secondary-color: #fc4a1a; /* Rojo/Naranja de Acento */
+    --text-light: #fcb65a;
+    --text-dark: #1f1f1f;
+    --background-dark: #000000f5; /* Fondo Oscuro Profundo */
+    --card-bg-light: rgba(255, 255, 255, 0.08); /* Blanco muy transparente para Glassmorphism */
+
+    /* Estructura y Efectos */
+    --border-radius-lg: 18px;
+    --transition-speed: 0.3s;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ======================================= */
+/* ESTILOS BASE                */
+/* ======================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna y legible */
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    /* Efecto de fondo sutil si se usa imagen */
+    /* background-image: linear-gradient(135deg, rgba(15, 15, 26, 0.9), rgba(40, 40, 60, 0.9)), url('ruta/a/fondo-perfume.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ==================================
+           CONTENEDOR PRINCIPAL
+        ===================================== */
+        .page-header {
+            width: 100%;
+            /* Degradado radial para un efecto de "escenario" oscuro */
+            background: radial-gradient(circle at 10% 50%, var(--dark-bg), var(--darker-bg) 70%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Sombra oscura */
+            border-bottom: 2px solid rgba(255, 215, 0, 0.1); /* Línea dorada sutil */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* ==================================
+           LOGO (Efecto Antiguo/Glow)
+        ===================================== */
+        .header-logo img {
+            width: 70px; /* Tamaño más grande para impacto */
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--golden-accent); /* Borde dorado */
+            /* Efecto de filtro para un aspecto más rico y antiguo */
+            filter: grayscale(0.1) brightness(1.1) drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+            transition: transform 0.3s ease;
+        }
+
+        .header-logo img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ==================================
+           TÍTULO (Efecto de Destello Animado)
+        ===================================== */
+        .header-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--light-text);
+            margin: 0;
+            position: relative;
+            
+            /* Sombra de texto inicial para el efecto de luz */
+            text-shadow: 
+                0 0 5px var(--golden-accent),
+                0 0 10px rgba(255, 215, 0, 0.4);
+            
+            /* Aplicar la animación de brillo */
+            animation: elegantGlow 3s infinite alternate;
+        }
+
+        @keyframes elegantGlow {
+            0% {
+                text-shadow: 
+                    0 0 5px var(--golden-accent),
+                    0 0 10px rgba(255, 215, 0, 0.4);
+            }
+            100% {
+                text-shadow: 
+                    0 0 10px var(--golden-accent),
+                    0 0 20px rgba(255, 215, 0, 0.8),
+                    0 0 30px rgba(255, 215, 0, 0.2);
+            }
+        }
+
+        /* ==================================
+           BOTÓN (Efecto 3D / Brillo Hover)
+        ===================================== */
+        .btn-inicio-integrado {
+            background-color: var(--orange-btn);
+            color: var(--light-text);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 12px 30px;
+            border-radius: 50px; /* Bordes muy redondeados */
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            transition: all 0.3s ease-in-out;
+            
+            /* Sombra para el efecto de elevación (Botón fuera de la pantalla) */
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+        }
+
+        .btn-inicio-integrado:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px); /* Pequeño levantamiento */
+            /* Efecto de brillo de botón */
+            box-shadow: 0 8px 25px rgba(255, 87, 34, 0.7), 
+                        0 0 20px var(--orange-btn);
+        }
+        @keyframes elegantGlow {
+            0% {
+                text-shadow: 
+                    0 0 5px var(--golden-accent),
+                    0 0 10px rgba(255, 215, 0, 0.4);
+            }
+            100% {
+                text-shadow: 
+                    0 0 10px var(--golden-accent),
+                    0 0 20px rgba(255, 215, 0, 0.8),
+                    0 0 30px rgba(255, 215, 0, 0.2);
+            }
+        }
+
+        /* ==================================
+           BOTÓN (Efecto 3D / Brillo Hover)
+        ===================================== */
+        .btn-inicio-integrado {
+            background-color: var(--orange-btn);
+            color: var(--light-text);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 12px 30px;
+            border-radius: 50px; /* Bordes muy redondeados */
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            transition: all 0.3s ease-in-out;
+            
+            /* Sombra para el efecto de elevación (Botón fuera de la pantalla) */
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+        }
+
+        .btn-inicio-integrado:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px); /* Pequeño levantamiento */
+            /* Efecto de brillo de botón */
+            box-shadow: 0 8px 25px rgba(255, 87, 34, 0.7), 
+                        0 0 20px var(--orange-btn);
+        }
+/* Nuevo Estilo para el Logo/Slogan en el Header */
+.logo-slogan {
+    margin-right: auto; /* Empuja el menú a la derecha */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em; /* Tamaño destacado */
+    font-weight: 700;
+    color: var(--primary-color); /* Color por defecto */
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+/* Estilo para el acento dorado en el slogan */
+.logo-slogan span {
+    color: var(--secondary-color); /* Dorado brillante */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.4); /* Sutil brillo */
+}
+
+/* Cuando el header se vuelve sólido, el logo también debe lucir bien */
+.header.scrolled .logo-slogan {
+    color: var(--primary-color);
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    flex-shrink: 0; /* Previene que se encoja */
+    transition: transform var(--transition-speed) ease;
+}
+
+.header-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.header-logo:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: var(--secondary-color);
+}
+
+.header-title h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-light);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Botón de Inicio Integrado */
+.btn-inicio-integrado {
+    text-decoration: none;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 8px 20px;
+    border-radius: 50px; /* Forma de píldora */
+    font-weight: 500;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.btn-inicio-integrado:hover {
+    background-color: #ff6347; /* Tono más claro al pasar el ratón */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* ======================================= */
+/* CONTENEDOR PRINCIPAL         */
+/* ======================================= */
+
+.main-container {
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+}
+
+.purchase-panel {
+    /* Estilo Glassmorphism / Dark Glass */
+    background-color: var(--card-bg-light); 
+    backdrop-filter: blur(15px); /* Efecto de desenfoque de fondo */
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-deep);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.panel-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* ======================================= */
+/* BUSCADOR Y ENTRADAS             */
+/* ======================================= */
+
+.search-container {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#perfume-search, input[type="text"], input[type="tel"] {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(238, 93, 93, 0.15); /* Fondo input semitransparente */
+    color: var(--text-light);
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+    box-sizing: border-box;
+}
+
+#perfume-search::placeholder, input::placeholder {
+    color: rgba(217, 221, 241, 0.774).5)
+}
+
+#perfume-search:focus, input:focus, select:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 3px var(--primary-color); /* Anillo de enfoque elegante */
+}
+
+/* ======================================= */
+/* SELECCIÓN DE MARCAS           */
+/* ======================================= */
+
+.step-subtitle {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: var(--text-light);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive Grid */
+    gap: 15px;
+    padding: 10px;
+}
+
+.brand-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg-light);
+    border-radius: 12px;
+    padding: 10px 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    border: 1px solid transparent;
+}
+
+.brand-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--primary-color);
+}
+
+.brand-item.selected {
+    border: 3px solid var(--primary-color);
+    background-color: rgba(247, 183, 51, 0.2); /* Tono primary semi-transparente */
+    transform: scale(1.05);
+}
+
+.brand-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.brand-item span {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ======================================= */
+/* LISTAS Y PASOS              */
+/* ======================================= */
+
+.dynamic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dynamic-list li {
+    background-color: var(--card-bg-light);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    border-left: 5px solid transparent;
+}
+
+.dynamic-list li:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left-color: var(--primary-color);
+}
+
+.dynamic-list li.selected {
+    border-left-color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Contenedores de pasos */
+.step.hidden {
+    display: none;
+}
+
+/* ======================================= */
+/* FORMULARIOS Y SELECTS          */
+/* ======================================= */
+
+.label-select, .label-input {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    font-size: 1rem;
+    /* Eliminar estilo nativo de flecha para más control (opcional) */
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23f7b733' d='M10 12l-6-6h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+}
+
+.delivery {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #fca311; /* Advertencia en un tono ámbar */
+    font-style: italic;
+}
+
+/* Resumen del Pedido */
+.order-summary {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+.order-summary p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+.order-summary span {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* ======================================= */
+/* BOTONES                  */
+/* ======================================= */
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 50px; /* Botones grandes y redondeados */
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all var(--transition-speed) ease;
+    text-transform: uppercase;
+}
+
+/* Botón de Siguiente/Atrás */
+.next-btn {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+}
+
+.next-btn:hover {
+    background-color: #ffc45d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(247, 183, 51, 0.4);
+}
+.btn-inicio-integrado {
+    display: inline-block;
+    background-color: #2a2a8f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-inicio-integrado:hover {
+    background-color: #3f3fc0;
+}
+.back-btn {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-light);
+    padding: 12px;
+    margin-top: 15px;
+}
+
+.back-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--secondary-color);
+}
+
+/* Botón Principal de Acción (WhatsApp) */
+#send-order-btn {
+    background-color: #25D366; /* Verde WhatsApp */
+    color: white;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+}
+
+#send-order-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* ======================================= */
+/* RESPONSIVE                */
+/* ======================================= */
+
+@media (max-width: 600px) {
+    .purchase-panel {
+        padding: 20px;
+        margin-top: 10px;
+    }
+    
+    .panel-title {
+        font-size: 1.6rem;
+    }
+    
+    .header-title h1 {
+        font-size: 1rem;
+    }
+
+    .brand-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+    }
+    
+    .brand-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+</style>
+
+
+ <main class="main-container">
+        <div class="purchase-panel"> 
+<body class="attention-grabber">
+<header class="header">
+    <div class="container">
+        <div class="logo-slogan">
+            Mis Fragancias: <span>jhon dainer arias</span>
+        </div>
+        
+        <nav>
+            <ul>
+                </ul>
+        </nav>
+    </div>
+
+    <header class="page-header">
+        <div class="header-left">
+            <div class="header-logo">
+                <img src="img\aa2.jpg" alt="Logo de la Tienda" title="Perfume Shop">
+            </div>
+            <div class="header-title">
+                <h1>Perfumería Exclusiva</h1>
+            </div>
+        </div>
+
+        <a href="catalogo.html" class="btn-inicio-integrado">
+            catalogo
+        </a>
+        
+    </header>
+    
+          
+            <h2 class="panel-title">Pagina de compras </h2>
+            <div class="search-container">
+                <input type="text" id="perfume-search" placeholder="escribe el nombre de tu perfume te ayudo a buscar   ...">
+                <div id="search-results" class="hidden"></div>
+            </div>
+            
+            <div id="step-1" class="step">
+                <h3 class="step-subtitle"> Selecciona una Marca</h3>
+                <div class="brand-grid">
+                    <div class="brand-item" data-brand="Carolina Herrera">
+                        <img src="img/carolina.jpg" alt="Carolina Herrera" class="brand-icon">
+                        <span>Carolina Herrera</span>
+                    </div>
+                    <div class="brand-item" data-brand="Paco Rabanne">
+                        <img src="img/paco.jpg" alt="Paco Rabanne" class="brand-icon">
+                        <span>Paco Rabanne</span>
+                    </div>
+                    <div class="brand-item" data-brand="Lataffa">
+                        <img src="img/latafa.jpg" alt="Lataffa" class="brand-icon">
+                        <span>Lataffa</span>
+                    </div>
+                    <div class="brand-item" data-brand="Hugo Boss">
+                        <img src="img/hugo.jpg" alt="Hugo Boss" class="brand-icon">
+                        <span>Hugo Boss</span>
+                    </div>
+                    <div class="brand-item" data-brand="Lacoste">
+                        <img src="img/lacoste.jpg" alt="Lacoste" class="brand-icon">
+                        <span>Lacoste</span>
+                    </div>
+                    <div class="brand-item" data-brand="Yanbal">
+                        <img src="img/temp.jpg" alt="Yanbal" class="brand-icon">
+                        <span>Yambal</span>
+                    </div>
+                    <div class="brand-item" data-brand="Victoria Secret">
+                        <img src="img/victoria.jpg" alt="Victoria Secret" class="brand-icon">
+                        <span>Victoria Secret</span>
+                    </div>
+                    <div class="brand-item" data-brand="Jean Paul Gaultier">
+                        <img src="img/jean.jpg" alt="Jean Paul Gaultier" class="brand-icon">
+                        <span>Jean Paul Gaultier</span>
+                    </div>
+                    <div class="brand-item" data-brand="Montale">
+                        <img src="img/montale.jpg" alt="Montale" class="brand-icon">
+                        <span>Montale</span>
+                    </div>
+                    <div class="brand-item" data-brand="Ariana Grande">
+                        <img src="img/ariana.jpg" alt="Ariana Grande" class="brand-icon">
+                        <span>Ariana Grande</span>
+                    </div>
+                    <div class="brand-item" data-brand="Versace">
+                        <img src="img/versace.jpg" alt="Versace" class="brand-icon">
+                        <span>Versace</span>
+                    </div>
+                    <div class="brand-item" data-brand="Calvin Klein">
+                        <img src="img/calvin.jpg" alt="Calvin Klein" class="brand-icon">
+                        <span>Calvin Klein</span>
+                    </div>
+                    <div class="brand-item" data-brand="Ilmin">
+                        <img src="img/ilmin.jpg" alt="Ilmin" class="brand-icon">
+                        <span>Ilmin</span>
+                    </div>
+                    <div class="brand-item" data-brand="Moshino">
+                        <img src="img/moshino.jpg" alt="Moshino" class="brand-icon">
+                        <span>Moshino</span>
+                    </div>
+                    <div class="brand-item" data-brand="Armaf">
+                        <img src="img/armaf.jpg" alt="Armaf" class="brand-icon">
+                        <span>Armaf</span>
+                    </div>
+                    <div class="brand-item" data-brand="Giorgio Armani">
+                        <img src="img/giorgio.jpg" alt="Giorgio Armani" class="brand-icon">
+                        <span>Giorgio Armani</span>
+                    </div>
+                    <div class="brand-item" data-brand="Chanel">
+                        <img src="img/chanel.jpg" alt="Chanel" class="brand-icon">
+                        <span>Chanel</span>
+                    </div>
+                    <div class="brand-item" data-brand="Escada">
+                        <img src="img/escada.jpg" alt="Escada" class="brand-icon">
+                        <span>Escada</span>
+                    </div>
+                    <div class="brand-item" data-brand="Afnan">
+                        <img src="img/9pm.jpg" alt="Afnan" class="brand-icon">
+                        <span>Afnan</span>
+                    </div>
+                    <div class="brand-item" data-brand="Antonio Banderas">
+                        <img src="img/antonio.jpg" alt="Antonio Banderas" class="brand-icon">
+                        <span>Antonio Banderas</span>
+                    </div>
+                    <div class="brand-item" data-brand="Dolce & Gabbana">
+                        <img src="img/dolce.jpg" alt="Dolce & Gabbana" class="brand-icon">
+                        <span>Dolce & Gabbana</span>
+                    </div>
+                    <div class="brand-item" data-brand="Christian Dior">
+                        <img src="img/dior.jpg" alt="Christian Dior" class="brand-icon">
+                        <span>Christian Dior</span>
+                    </div>
+                    <div class="brand-item" data-brand="Diesel">
+                        <img src="img/diesel.jpg" alt="Diesel" class="brand-icon">
+                        <span>Diesel</span>
+                    </div>
+                    <div class="brand-item" data-brand="Orientica">
+                        <img src="img/orientica.jpg" alt="Orientica" class="brand-icon">
+                        <span>Orientica</span>
+                    </div>
+                    <div class="brand-item" data-brand="Ralph Lauren">
+                        <img src="img/ralp.jpg" alt="Ralph Lauren" class="brand-icon">
+                        <span>Ralph Lauren</span>
+                    </div>
+                    <div class="brand-item" data-brand="Al Haramain">
+                        <img src="img/alhara.jpg" alt="Al Haramain" class="brand-icon">
+                        <span>Al Haramain</span>
+                    </div>
+                    <div class="brand-item" data-brand="Bahara">
+                        <img src="img/bahara.jpg" alt="Bahara" class="brand-icon">
+                        <span>Bahara</span>
+                    </div>
+                    <div class="brand-item" data-brand="Ahli Fragrances">
+                        <img src="img/ahli.jpg" alt="Ahli Fragrances" class="brand-icon">
+                        <span>Ahli Fragrances</span>
+                    </div>
+                    <div class="brand-item" data-brand="Bath & Bois">
+                        <img src="img/bath.jpg" alt="Bath & Bois" class="brand-icon">
+                        <span>Bath & Bois</span>
+                    </div>
+                    <div class="brand-item" data-brand="Parfumes de Marly">
+                        <img src="img/mary.jpg" alt="Parfumes de Marly" class="brand-icon">
+                        <span>Parfumes de Marly</span>
+                    </div>
+                    <div class="brand-item" data-brand="Valentino">
+                        <img src="img/valentino.jpg" alt="Valentino" class="brand-icon">
+                        <span>Valentino</span>
+                    </div>
+                    <div class="brand-item" data-brand="Animale">
+                        <img src="img/animale.jpg" alt="Animale" class="brand-icon">
+                        <span>Animale</span>
+                    </div>
+                    <div class="brand-item" data-brand="Esika">
+                        <img src="img/dorsay.jpg" alt="Esika" class="brand-icon">
+                        <span>Esika</span>
+                    </div>
+                    <div class="brand-item" data-brand="Sofia Vergara">
+                        <img src="img/sofia.jpg" alt="Sofia Vergara" class="brand-icon">
+                        <span>Sofia Vergara</span>
+                    </div>
+                    <div class="brand-item" data-brand="Tommy Hilfiger">
+                        <img src="img/thom.jpg" alt="Tommy Hilfiger" class="brand-icon">
+                        <span>Tommy Hilfiger</span>
+                    </div>
+                    <div class="brand-item" data-brand="Benetton">
+                        <img src="img/tribu.jpg" alt="Benetton" class="brand-icon">
+                        <span>Benetton</span>
+                    </div>
+                    <div class="brand-item" data-brand="Burberry">
+                        <img src="img/bur.jpg" alt="Burberry" class="brand-icon">
+                        <span>Burberry</span>
+                    </div>
+                    <div class="brand-item" data-brand="Giardini Di Toscana">
+                        <img src="img/giardini.jpg" alt="Giardini Di Toscana" class="brand-icon">
+                        <span>Giardini Di Toscana</span>
+                    </div>
+                    <div class="brand-item" data-brand="Agatha Ruiz de la Prada">
+                        <img src="img/gotas.jpg" alt="Agatha Ruiz de la Prada" class="brand-icon">
+                        <span>Agatha Ruiz de la Prada</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="step-2" class="step hidden">
+                <h3 class="step-subtitle"> Selecciona un Perfume</h3>
+                <ul id="perfume-list" class="dynamic-list">
+                </ul>
+                <button class="back-btn" data-step="1">Atrás</button>
+            </div>
+            
+            <div id="step-3" class="step hidden">
+                <h3 class="step-subtitle">Detalles y Resumen</h3>
+                <div class="order-summary">
+                    <p>Marca: <span id="summary-brand"></span></p>
+                    <p>Perfume: <span id="summary-perfume"></span></p>
+                </div>
+                <label for="size-select" class="label-select">Tamaño:</label>
+                <select name="perfume-size" id="size-select">
+                    <option value="">-- Selecciona un tamaño --</option>
+                    <option value="30ml">PEQUEÑO $20.000</option>
+                    <option value="50ml">MEDIANO $40.000</option>
+                    <option value="100ml">GRANDE $70.000</option>
+                </select>
+                <label for="payment-method-select" class="label-select">Método de Pago:</label>
+                <select name="payment-method" id="payment-method-select">
+                    <option value="">-- Selecciona una metodo --</option>
+                    <option value="nequi">Nequi</option>
+                    <option value="efectivo">Efectivo contra entrega</option>
+                    <option value="a-plazos">A plazos</option>
+                </select>
+                <p class="delivery">El pago a plazos tiene un costo adicional de $5.000</p>
+                <button class="next-btn" data-step="4">Siguiente</button>
+                <button class="back-btn" data-step="2">Atrás</button>
+            </div>
+            
+            <div id="step-4" class="step hidden">
+                <h3 class="step-subtitle"> Confirma tus Datos</h3>
+                <label for="client-name" class="label-input">Tu Nombre:</label>
+                <input type="text" id="client-name" placeholder="Ej. jhon arias">
+                <label for="client-phone" class="label-input">Tu Teléfono:</label>
+                <input type="tel" id="client-phone" placeholder="Ej. 3138094678">
+                <button id="send-order-btn">Hacer la compra por WhatsApp</button>
+                <button class="back-btn" data-step="3">Atrás</button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="script1.js"></script>
+</body>
+</html>

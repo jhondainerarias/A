@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Clientes - Perfumería</title>
+
+    <!-- Librería SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2a2a8f;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #2a2a8f;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1e1e70;
+        }
+
+        .link {
+            margin-top: 15px;
+            display: block;
+            color: #2a2a8f;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .link:hover {
+            color: #ff4081;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+                <h1> mis fragancias jhon dainer arias</h1>
+
+        <h2>🎁 ¡Regístrate y obtén 10% de descuento en tu proxima compra!</h2>
+        <input type="text" id="nombre" placeholder="Nombre completo">
+        <input type="text" id="telefono" placeholder="Número celular">
+        <input type="text" id="direccion" placeholder="Dirección">
+
+        <button onclick="registrar()">Registrarme</button>
+
+        <span class="link" onclick="yaRegistrado()">¿Ya estás registrado? Haz clic aquí</span>
+    </div>
+
+    <script>
+        
+function registrar() {
+    let nombre = document.getElementById('nombre').value.trim();
+    let telefono = document.getElementById('telefono').value.trim();
+    let direccion = document.getElementById('direccion').value.trim();
+
+    if (!nombre || !telefono || !direccion) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campos incompletos',
+            text: 'Por favor, llena todos los campos antes de continuar.'
+        });
+        return;
+    }
+
+    // ✅ Mostrar mensaje de éxito antes de enviar a WhatsApp
+    Swal.fire({
+        icon: 'success',
+        title: '¡Registro exitoso! 🎉',
+        text: `${nombre}, gracias por registrarte. Has obtenido un 10% de descuento en tu primera compra.`,
+        confirmButtonColor: '#2a2a8f',
+        confirmButtonText: 'Enviar a WhatsApp'
+    }).then(() => {
+        // ✅ Número de WhatsApp del negocio (ajústalo con tu número real)
+        let numeroWhatsApp = "5731238094678"; // ← Reemplaza con el tuyo
+
+        // ✅ Crear el mensaje
+        let mensaje = `🌸 Nuevo registro de cliente:\n\n👤 Nombre: ${nombre}\n📞 Teléfono: ${telefono}\n🏠 Dirección: ${direccion}\n🎁 Cliente registrado con 10% de descuento.`;
+
+        // ✅ Codificar y abrir WhatsApp
+        let url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+    });
+}
+
+function yaRegistrado() {
+    Swal.fire({
+        title: 'boy a dirigirte a la tienda 💐',
+        html: `
+            <p>gracias por preferirnos.</p>
+            <a href="index.html" class="btn-inicio-integrado" style="
+                display: inline-block;
+                background-color: #2a2a8f;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: bold;
+                margin-top: 10px;">
+                Ir a la tienda 🛍️
+            </a>
+        `,
+        showConfirmButton: false,
+        icon: 'info'
+    });
+}
+</script>
+</body>
+</html>
