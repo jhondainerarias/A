@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // ✅ Número de WhatsApp del negocio
-            const numeroWhatsApp = "573138009467"; // ← Cambia por el tuyo real
+            const numeroWhatsApp = "573138094678"; // ← Cambia por el tuyo real
 
             // ✅ Crear mensaje estilo registro (más elegante)
             const mensaje = `🛍️ *Nuevo pedido recibido:*\n\n` +
@@ -399,3 +399,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
