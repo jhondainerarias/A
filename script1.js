@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         'ariana grande': [
             { nombre: 'cloud dama' }, { nombre: 'thank unext dama' }, { nombre: 'ari dama' },{ nombre: 'cloud  pink dama' },  
-            { nombre: 'sweet like candy dama' },{ nombre: 'mod vainilla dama' }{ nombre: 'thank unext 2.0 dama' }, { nombre: 'rem dama' },{ nombre: 'rem dama' }, 
+            { nombre: 'sweet like candy dama' }, { nombre: 'mod vainilla dama' }, { nombre: 'thank unext 2.0 dama' }, { nombre: 'rem dama' }, { nombre: 'rem dama' }, 
         ],
-        'Paco Rabanne': [
+         'Paco Rabanne': [
             { nombre: 'Black XS dama' }, { nombre: 'Lady Million Royal dama' }, { nombre: 'Lady Million dama' },
             { nombre: 'Olympea dama' }, { nombre: 'Olympea Aqua dama' }, { nombre: 'Fame dama' },
             { nombre: '1 Million Men' }, { nombre: 'Invictus Men' }, { nombre: 'One Million Royal Men' },
@@ -403,5 +403,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
 
