@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="Compra tus fragancias favoritas - Mis Fragancias Jhon Dainer Arias">
+    <title>Tienda de Perfumes | Jhon Dainer Arias</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ============================================================
+               TOKENS DE DISEÑO (Variables CSS completas)
+               ============================================================ */
+        :root {
+            /* Colores Principales */
+            --color-primary: #0a0a0a;
+            --color-secondary: #D4AF37;
+            --color-secondary-light: #F4D03F;
+            --color-accent: #fc4a1a;
+            --color-success: #25D366;
+            
+            /* Fondos */
+            --color-background: #f8f6f3;
+            --color-surface: #ffffff;
+            --color-card-bg: rgba(255, 255, 255, 0.08);
+            
+            /* Texto */
+            --color-text-primary: #0a0a0a;
+            --color-text-secondary: #555555;
+            --color-text-muted: #999999;
+            --color-text-inverse: #ffffff;
+            
+            /* Tipografía */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            
+            /* Espaciado (8px grid) */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            
+            /* Tamaños de fuente */
+            --text-xs: 11px;
+            --text-sm: 13px;
+            --text-base: 15px;
+            --text-lg: 18px;
+            --text-xl: 22px;
+            --text-2xl: 28px;
+            --text-3xl: 36px;
+            
+            /* Bordes */
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 9999px;
+            
+            /* Sombras */
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.16);
+            --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.15);
+            
+            /* Transiciones */
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+            --duration-fast: 200ms;
+            --duration-base: 350ms;
+            --duration-slow: 600ms;
+        }
+
+        /* ============================================================
+               RESET Y BASE
+               ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            background: var(--color-background);
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding-top: 80px;
+            padding-bottom: 100px;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        /* ============================================================
+               HEADER (Rediseñado y Elegante)
+               ============================================================ */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.10);
+            padding: var(--space-sm) var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--duration-base) ease;
+        }
+
+        .main-header .header-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .main-header .header-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--color-secondary);
+            flex-shrink: 0;
+            transition: transform var(--duration-fast) var(--ease-spring);
+        }
+
+        .main-header .header-logo:hover {
+            transform: scale(1.08);
+        }
+
+        .main-header .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-header .header-title {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--color-text-inverse);
+            line-height: 1.1;
+        }
+
+        .main-header .header-title .accent {
+            color: var(--color-secondary);
+        }
+
+        .main-header .header-title small {
+            display: block;
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 400;
+            color: var(--color-text-muted);
+            letter-spacing: 0.1em;
+        }
+
+        .main-header .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .main-header .header-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 8px 20px;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--color-text-inverse);
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+            border-radius: var(--radius-full);
+            transition: all var(--duration-base) var(--ease-spring);
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+        }
+
+        .main-header .header-actions a:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35);
+        }
+
+        .main-header .header-actions a i {
+            font-size: var(--text-base);
+        }
+
+        /* ============================================================
+               BREADCRUMB (Indicador de navegación)
+               ============================================================ */
+        .breadcrumb {
+            padding: var(--space-md) 0;
+            background: transparent;
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--color-secondary);
+            transition: color var(--duration-fast) ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-secondary-light);
+        }
+
+        .breadcrumb .separator {
+            margin: 0 var(--space-sm);
+            color: var(--color-text-muted);
+        }
+
+        /* ============================================================
+               PANEL DE COMPRAS (Glassmorphism Mejorado)
+               ============================================================ */
+        .main-container {
+            padding: var(--space-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .purchase-panel {
+            background: rgba(255, 255, 255, 0.70);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.30);
+            box-shadow: var(--shadow-lg);
+            padding: var(--space-xl);
+            max-width: 700px;
+            margin: 0 auto;
+            transition: all var(--duration-base) ease;
+        }
+
+        @media (max-width: 600px) {
+            .purchase-panel {
+                padding: var(--space-lg);
+                border-radius: var(--radius-md);
+            }
+        }
+
+        .panel-title {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            color: var(--color-primary);
+            position: relative;
+        }
+
+        .panel-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--color-secondary), var(--color-secondary-light));
+            margin: var(--space-sm) auto 0;
+            border-radius: var(--radius-full);
+        }
+
+        /* ============================================================
+               BUSCADOR
+               ============================================================ */
+        .search-container {
+            position: relative;
+            margin-bottom: var(--space-xl);
+        }
+
+        .search-container .search-icon {
+            position: absolute;
+            left: var(--space-md);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-muted);
+            font-size: var(--text-base);
+            pointer-events: none;
+        }
+
+        #perfume-search {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            border: 2px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.80);
+            font-size: var(--text-base);
+            font-family: var(--font-body);
+            color: var(--color-text-primary);
+            transition: all var(--duration-base) ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        #perfume-search:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.10), var(--shadow-md);
+        }
+
+        #perfume-search::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        /* ============================================================
+               PASOS (Steps)
+               ============================================================ */
+        .step {
+            display: block;
+            animation: fadeSlideIn var(--duration-slow) var(--ease-smooth);
+        }
+
+        .step.hidden {
+            display: none;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-subtitle {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .step-subtitle .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+            color: var(--color-primary);
+            border-radius: 50%;
+            font-size: var(--text-sm);
+            font-weight: 700;
+            font-family: var(--font-body);
+        }
+
+        /* ============================================================
+               GRID DE MARCAS (Mejorado)
+               ============================================================ */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        @media (min-width: 480px) {
+            .brand-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                gap: var(--space-lg);
+            }
+        }
+
+        .brand-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-md) var(--space-sm);
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all var(--duration-base) var(--ease-spring);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .brand-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(212, 175, 55, 0.20);
+        }
+
+        .brand-item.selected {
+            border-color: var(--color-secondary);
+            background: rgba(212, 175, 55, 0.06);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .brand-item.selected::after {
+            content: '✓';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 24px;
+            height: 24px;
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(0, 0, 0, 0.04);
+            transition: transform var(--duration-fast) var(--ease-spring);
+        }
+
+        .brand-item:hover .brand-icon {
+            transform: scale(1.06);
+        }
+
+        .brand-item span {
+            font-size: var(--text-xs);
+            font-weight: 500;
+            text-align: center;
+            color: var(--color-text-secondary);
+            line-height: 1.2;
+        }
+
+        .brand-item.selected span {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        /* ============================================================
+               LISTA DE PERFUMES
+               ============================================================ */
+        .dynamic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-sm);
+        }
+
+        .dynamic-list li {
+            padding: var(--space-md) var(--space-lg);
+            background: var(--color-surface);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid transparent;
+            cursor: pointer;
+            transition: all var(--duration-base) var(--ease-spring);
+            box-shadow: var(--shadow-sm);
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dynamic-list li:hover {
+            transform: translateX(4px);
+            border-left-color: var(--color-secondary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .dynamic-list li.selected {
+            border-left-color: var(--color-secondary);
+            background: rgba(212, 175, 55, 0.06);
+            font-weight: 600;
+        }
+
+        .dynamic-list li .perfume-price {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--color-secondary);
+        }
+
+        /* ============================================================
+               FORMULARIOS Y SELECTS
+               ============================================================ */
+        .form-group {
+            margin-top: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .form-label .required {
+            color: var(--color-accent);
+            margin-left: 2px;
+        }
+
+        select,
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-sm);
+            background: var(--color-surface);
+            font-size: var(--text-base);
+            font-family: var(--font-body);
+            color: var(--color-text-primary);
+            transition: all var(--duration-base) ease;
+            box-shadow: var(--shadow-sm);
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 44px;
+        }
+
+        select:focus,
+        input[type="text"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.10), var(--shadow-sm);
+        }
+
+        /* ============================================================
+               RESUMEN DEL PEDIDO
+               ============================================================ */
+        .order-summary {
+            background: rgba(212, 175, 55, 0.06);
+            border-left: 4px solid var(--color-secondary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .order-summary p {
+            margin: var(--space-xs) 0;
+            font-size: var(--text-base);
+        }
+
+        .order-summary .summary-label {
+            font-weight: 400;
+            color: var(--color-text-muted);
+        }
+
+        .order-summary .summary-value {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .order-summary .summary-value.highlight {
+            color: var(--color-secondary);
+        }
+
+        .delivery-info {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+            margin-top: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .delivery-info i {
+            color: var(--color-secondary);
+        }
+
+        /* ============================================================
+               BOTONES
+               ============================================================ */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-top: var(--space-xl);
+        }
+
+        @media (min-width: 480px) {
+            .btn-group {
+                flex-direction: row;
+            }
+            .btn-group .btn {
+                flex: 1;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: 14px 28px;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: all var(--duration-base) var(--ease-spring);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+            color: var(--color-primary);
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.96);
+        }
+
+        .btn-success {
+            background: var(--color-success);
+            color: white;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.30);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.40);
+        }
+
+        .btn-success i {
+            font-size: var(--text-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-text-secondary);
+            border: 2px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(0, 0, 0, 0.04);
+            color: var(--color-text-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        /* ============================================================
+               TOAST NOTIFICACIÓN
+               ============================================================ */
+        .toast {
+            position: fixed;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            padding: 12px 24px;
+            background: var(--color-primary);
+            color: var(--color-text-inverse);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transition: all var(--duration-base) var(--ease-spring);
+            z-index: 200;
+            pointer-events: none;
+            white-space: nowrap;
+            max-width: 90%;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast i {
+            margin-right: var(--space-sm);
+            color: var(--color-secondary);
+        }
+
+        /* ============================================================
+               RESPONSIVE FINO
+               ============================================================ */
+        @media (max-width: 600px) {
+            .main-header {
+                padding: var(--space-sm) var(--space-md);
+            }
+
+            .main-header .header-title {
+                font-size: var(--text-base);
+            }
+
+            .main-header .header-title small {
+                font-size: 9px;
+            }
+
+            .main-header .header-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .main-header .header-actions a span {
+                display: none;
+            }
+
+            .main-header .header-actions a {
+                padding: 8px 14px;
+                font-size: var(--text-base);
+            }
+
+            .panel-title {
+                font-size: var(--text-xl);
+            }
+
+            .brand-grid {
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: var(--space-sm);
+            }
+
+            .brand-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .brand-item {
+                padding: var(--space-sm);
+            }
+
+            .brand-item span {
+                font-size: 9px;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: var(--text-sm);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .purchase-panel {
+                padding: var(--space-md);
+            }
+
+            .brand-grid {
+                grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+                gap: var(--space-xs);
+            }
+
+            .brand-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .step-subtitle {
+                font-size: var(--text-lg);
+            }
+        }
+
+        /* ============================================================
+               SCROLLBAR PERSONALIZADA
+               ============================================================ */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-background);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-secondary);
+            border-radius: var(--radius-full);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-secondary-light);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================
+    HEADER (Mejorado)
+    ============================================================ -->
+    <header class="main-header" role="banner">
+        <div class="header-brand">
+            <div class="header-logo">
+                <img src="img/aa2.jpg" alt="Mis Fragancias - Logo" loading="lazy">
+            </div>
+            <div class="header-title">
+                Mis<span class="accent">Fragancias</span>
+                <small>Jhon Dainer Arias</small>
+            </div>
+        </div>
+        <div class="header-actions">
+            <a href="index.html" aria-label="Ir al inicio">
+                <i class="fa-solid fa-house"></i>
+                <span>Inicio</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    BREADCRUMB
+    ============================================================ -->
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Migajas de pan">
+            <a href="index.html"><i class="fa-solid fa-home"></i> Inicio</a>
+            <span class="separator">/</span>
+            <span>Tienda</span>
+        </nav>
+    </div>
+
+    <!-- ============================================================
+    CONTENIDO PRINCIPAL
+    ============================================================ -->
+    <main class="main-container" role="main">
+        <div class="purchase-panel">
+            <h2 class="panel-title">
+                <i class="fa-solid fa-bag-shopping" style="color: var(--color-secondary);"></i>
+                Tu Compra Personalizada
+            </h2>
+
+            <!-- Buscador -->
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input 
+                    type="text" 
+                    id="perfume-search" 
+                    placeholder="Busca tu fragancia favorita..."
+                    aria-label="Buscar perfumes"
+                    autocomplete="off"
+                >
+            </div>
+
+            <!-- PASO 1: Marcas -->
+            <div id="step-1" class="step">
+                <h3 class="step-subtitle">
+                    <span class="step-number">1</span>
+                    Selecciona una Marca
+                </h3>
+                <div class="brand-grid" id="brandGrid" role="listbox">
+                    <!-- Las marcas se generan desde JavaScript -->
+                </div>
+            </div>
+
+            <!-- PASO 2: Perfumes -->
+            <div id="step-2" class="step hidden">
+                <h3 class="step-subtitle">
+                    <span class="step-number">2</span>
+                    Elige tu Fragancia
+                </h3>
+                <ul id="perfume-list" class="dynamic-list" role="listbox">
+                    <!-- Los perfumes se generan desde JavaScript -->
+                </ul>
+                <div class="btn-group">
+                    <button class="btn btn-secondary back-btn" data-step="1">
+                        <i class="fa-solid fa-arrow-left"></i> Atrás
+                    </button>
+                </div>
+            </div>
+
+            <!-- PASO 3: Detalles -->
+            <div id="step-3" class="step hidden">
+                <h3 class="step-subtitle">
+                    <span class="step-number">3</span>
+                    Detalles y Resumen
+                </h3>
+                
+                <div class="order-summary" id="orderSummary">
+                    <p><span class="summary-label">Marca:</span> <span class="summary-value" id="summary-brand">-</span></p>
+                    <p><span class="summary-label">Perfume:</span> <span class="summary-value" id="summary-perfume">-</span></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="size-select" class="form-label">
+                        Tamaño <span class="required">*</span>
+                    </label>
+                    <select id="size-select" aria-required="true">
+                        <option value="">-- Selecciona un tamaño --</option>
+                        <option value="30ml|20000">PEQUEÑO (30ml) - $20.000</option>
+                        <option value="50ml|40000">MEDIANO (50ml) - $40.000</option>
+                        <option value="100ml|70000">GRANDE (100ml) - $70.000</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment-method-select" class="form-label">
+                        Método de Pago <span class="required">*</span>
+                    </label>
+                    <select id="payment-method-select" aria-required="true">
+                        <option value="">-- Selecciona un método --</option>
+                        <option value="Nequi">Nequi</option>
+                        <option value="Efectivo contra entrega">Efectivo contra entrega</option>
+                        <option value="A plazos">A plazos (+$5.000)</option>
+                    </select>
+                </div>
+
+                <div class="delivery-info">
+                    <i class="fa-solid fa-info-circle"></i>
+                    <span>El pago a plazos tiene un costo adicional de $5.000</span>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary next-btn" data-step="4">
+                        <i class="fa-solid fa-arrow-right"></i> Siguiente
+                    </button>
+                    <button class="btn btn-secondary back-btn" data-step="2">
+                        <i class="fa-solid fa-arrow-left"></i> Atrás
+                    </button>
+                </div>
+            </div>
+
+            <!-- PASO 4: Confirmación -->
+            <div id="step-4" class="step hidden">
+                <h3 class="step-subtitle">
+                    <span class="step-number">4</span>
+                    Confirmar Datos
+                </h3>
+
+                <div class="form-group">
+                    <label for="client-name" class="form-label">
+                        Tu Nombre <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="client-name" 
+                        placeholder="Ej. Jhon Arias"
+                        aria-required="true"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="client-phone" class="form-label">
+                        Tu Teléfono <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="client-phone" 
+                        placeholder="Ej. 3138094678"
+                        aria-required="true"
+                    >
+                </div>
+
+                <div class="btn-group">
+                    <button id="send-order-btn" class="btn btn-success">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Comprar por WhatsApp
+                    </button>
+                    <button class="btn btn-secondary back-btn" data-step="3">
+                        <i class="fa-solid fa-arrow-left"></i> Atrás
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================
+    TOAST
+    ============================================================ -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toastMessage">¡Selección guardada!</span>
+    </div>
+
+    <!-- ============================================================
+    JAVASCRIPT (Completo y Mejorado)
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // DATOS DE MARCAS Y PERFUMES
+        // ============================================================
+        const perfumeData = {
+            'Carolina Herrera': ['Good Girl', 'Bad Boy', '212 VIP', 'Chic'],
+            'Ariana Grande': ['Cloud', 'Sweet Like Candy', 'Thank U Next', 'God Is A Woman'],
+            'Paco Rabanne': ['1 Million', 'Invictus', 'Lady Million', 'Olympéa'],
+            'Lataffa': ['Khamrah', 'Asad', 'Rave Now', 'Oud Mood'],
+            'Hugo Boss': ['Boss Bottled', 'Hugo Man', 'Boss The Scent', 'Boss Orange'],
+            'Lacoste': ['Lacoste Blanc', 'Lacoste Red', 'Lacoste Green', 'Lacoste Black'],
+            'Yanbal': ['Misterio', 'Deseo', 'Tribu', 'Clásico'],
+            'Victoria Secret': ['Bombshell', 'Tease', 'Heavenly', 'Love Spell'],
+            'Jean Paul Gaultier': ['Le Male', 'Scandal', 'Divine', 'Ultra Male'],
+            'Montale': ['Black Oud', 'Intense Cafe', 'Sensual Instinct', 'Red Aoud'],
+            'Versace': ['Eros', 'Dylan Blue', 'Bright Crystal', 'Yellow Diamond'],
+            'Calvin Klein': ['Eternity', 'CK One', 'Obsession', 'Euphoria'],
+            'Ilmin': ['Ilmin Gold', 'Ilmin Black', 'Ilmin White'],
+            'Moschino': ['Toy Boy', 'Cheap & Chic', 'I Love Love', 'Fresh'],
+            'Armaf': ['Club de Nuit', 'Hunter', 'Ventana', 'Derby'],
+            'Giorgio Armani': ['Acqua di Gio', 'Armani Code', 'My Way', 'Si'],
+            'Chanel': ['Chanel No. 5', 'Coco Mademoiselle', 'Bleu de Chanel', 'Chance'],
+            'Escada': ['Escada Magnetism', 'Escada Sunset', 'Escada Cherry'],
+            'Afnan': ['9pm', 'Supremacy', 'Modest Une', 'Rare'],
+            'Antonio Banderas': ['Blue Seduction', 'The Icon', 'Golden Secret', 'Her Secret'],
+            'Dolce & Gabbana': ['Light Blue', 'The One', 'Intenso', 'Pour Femme'],
+            'Christian Dior': ['Sauvage', 'J\'adore', 'Miss Dior', 'Hypnotic Poison'],
+            'Diesel': ['Only The Brave', 'Bad', 'Fuel For Life', 'Plus Plus'],
+            'Orientica': ['Orientica Royal', 'Orientica Gold', 'Orientica Platinum'],
+            'Ralph Lauren': ['Polo Blue', 'Polo Red', 'Romance', 'Ralph'],
+            'Al Haramain': ['L\'Aventure', 'Amber Oud', 'Tobacco', 'Mystique'],
+            'Bahara': ['Bahara Gold', 'Bahara Black', 'Bahara White'],
+            'Ahli Fragrances': ['Ahli Black', 'Ahli Gold', 'Ahli Royal'],
+            'Bath & Bois': ['Bath & Bois Noir', 'Bath & Bois Blanc'],
+            'Parfumes de Marly': ['Layton', 'Delina', 'Herod', 'Percival'],
+            'Valentino': ['Valentino Uomo', 'Valentino Donna', 'Born In Roma'],
+            'Animale': ['Animale Intense', 'Animale Sensual', 'Animale Classic'],
+            'Esika': ['Esika Gold', 'Esika Black', 'Esika White'],
+            'Sofia Vergara': ['Sofia', 'Sofia Love', 'Sofia Dream'],
+            'Tommy Hilfiger': ['Tommy Girl', 'Tommy Man', 'Tommy Jeans'],
+            'Benetton': ['Benetton Gold', 'Benetton Black', 'Benetton White'],
+            'Burberry': ['Burberry Brit', 'Burberry Touch', 'Burberry Body'],
+            'Giardini Di Toscana': ['Giardini Gold', 'Giardini Amber', 'Giardini Rose'],
+            'Agatha Ruiz de la Prada': ['Agatha Gold', 'Agatha Pink', 'Agatha Love']
+        };
+
+        // ============================================================
+        // ESTADO DE LA APLICACIÓN
+        // ============================================================
+        const state = {
+            currentStep: 1,
+            selectedBrand: null,
+            selectedPerfume: null,
+            selectedSize: null,
+            selectedPayment: null,
+            clientName: '',
+            clientPhone: ''
+        };
+
+        // ============================================================
+        // ELEMENTOS DOM
+        // ============================================================
+        const elements = {
+            steps: {
+                1: document.getElementById('step-1'),
+                2: document.getElementById('step-2'),
+                3: document.getElementById('step-3'),
+                4: document.getElementById('step-4')
+            },
+            brandGrid: document.getElementById('brandGrid'),
+            perfumeList: document.getElementById('perfume-list'),
+            searchInput: document.getElementById('perfume-search'),
+            summaryBrand: document.getElementById('summary-brand'),
+            summaryPerfume: document.getElementById('summary-perfume'),
+            sizeSelect: document.getElementById('size-select'),
+            paymentSelect: document.getElementById('payment-method-select'),
+            clientName: document.getElementById('client-name'),
+            clientPhone: document.getElementById('client-phone'),
+            sendBtn: document.getElementById('send-order-btn'),
+            toast: document.getElementById('toast'),
+            toastMessage: document.getElementById('toastMessage')
+        };
+
+        // ============================================================
+        // FUNCIONES UTILITARIAS
+        // ============================================================
+        function showToast(message, icon = 'fa-check-circle') {
+            const toast = elements.toast;
+            const msg = elements.toastMessage;
+            if (!toast || !msg) return;
+
+            msg.innerHTML = `<i class="fa-solid ${icon}"></i> ${message}`;
+
+            // Reiniciar animación
+            toast.classList.remove('show');
+            void toast.offsetWidth;
+            toast.classList.add('show');
+
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2800);
+        }
+
+        function showStep(step) {
+            Object.keys(elements.steps).forEach(key => {
+                const el = elements.steps[key];
+                if (el) {
+                    el.classList.toggle('hidden', parseInt(key) !== step);
+                }
+            });
+            state.currentStep = step;
+            
+            // Scroll al inicio del panel en móviles
+            const panel = document.querySelector('.purchase-panel');
+            if (panel && window.innerWidth < 768) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function getSelectedBrand() {
+            const selected = document.querySelector('.brand-item.selected');
+            return selected ? selected.dataset.brand : null;
+        }
+
+        function getSelectedPerfume() {
+            const selected = document.querySelector('#perfume-list li.selected');
+            return selected ? selected.dataset.perfume : null;
+        }
+
+        // ============================================================
+        // RENDERIZAR MARCAS
+        // ============================================================
+        function renderBrands(filter = '') {
+            const brands = Object.keys(perfumeData);
+            const filtered = filter 
+                ? brands.filter(b => b.toLowerCase().includes(filter.toLowerCase()))
+                : brands;
+
+            elements.brandGrid.innerHTML = filtered.map(brand => `
+                <div class="brand-item" data-brand="${brand}" role="option" tabindex="0">
+                    <img src="img/${brand.toLowerCase().replace(/ /g, '_')}.jpg" 
+                         alt="${brand}" 
+                         class="brand-icon"
+                         onerror="this.src='img/default.jpg'">
+                    <span>${brand}</span>
+                </div>
+            `).join('');
+
+            // Re-aplicar selección si existe
+            if (state.selectedBrand) {
+                const items = elements.brandGrid.querySelectorAll('.brand-item');
+                items.forEach(item => {
+                    if (item.dataset.brand === state.selectedBrand) {
+                        item.classList.add('selected');
+                    }
+                });
+            }
+
+            // Event listeners
+            elements.brandGrid.querySelectorAll('.brand-item').forEach(item => {
+                item.addEventListener('click', () => selectBrand(item.dataset.brand));
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        selectBrand(item.dataset.brand);
+                    }
+                });
+            });
+        }
+
+        // ============================================================
+        // SELECCIONAR MARCA
+        // ============================================================
+        function selectBrand(brand) {
+            // Deseleccionar todas
+            elements.brandGrid.querySelectorAll('.brand-item').forEach(el => {
+                el.classList.remove('selected');
+            });
+
+            // Seleccionar la actual
+            const selectedEl = elements.brandGrid.querySelector(`[data-brand="${brand}"]`);
+            if (selectedEl) {
+                selectedEl.classList.add('selected');
+                state.selectedBrand = brand;
+                showToast(`Marca seleccionada: ${brand}`, 'fa-gem');
+                
+                // Renderizar perfumes y avanzar
+                renderPerfumes(brand);
+                showStep(2);
+            }
+        }
+
+        // ============================================================
+        // RENDERIZAR PERFUMES
+        // ============================================================
+        function renderPerfumes(brand) {
+            const perfumes = perfumeData[brand] || [];
+            elements.perfumeList.innerHTML = perfumes.map((p, index) => `
+                <li data-perfume="${p}" role="option" tabindex="0" style="animation-delay: ${index * 50}ms">
+                    <span>${p}</span>
+                    <span class="perfume-price">Desde $20.000</span>
+                </li>
+            `).join('');
+
+            // Re-aplicar selección
+            if (state.selectedPerfume) {
+                const items = elements.perfumeList.querySelectorAll('li');
+                items.forEach(item => {
+                    if (item.dataset.perfume === state.selectedPerfume) {
+                        item.classList.add('selected');
+                    }
+                });
+            }
+
+            // Event listeners
+            elements.perfumeList.querySelectorAll('li').forEach(item => {
+                item.addEventListener('click', () => selectPerfume(item.dataset.perfume));
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        selectPerfume(item.dataset.perfume);
+                    }
+                });
+            });
+        }
+
+        // ============================================================
+        // SELECCIONAR PERFUME
+        // ============================================================
+        function selectPerfume(perfume) {
+            elements.perfumeList.querySelectorAll('li').forEach(el => {
+                el.classList.remove('selected');
+            });
+
+            const selectedEl = elements.perfumeList.querySelector(`[data-perfume="${perfume}"]`);
+            if (selectedEl) {
+                selectedEl.classList.add('selected');
+                state.selectedPerfume = perfume;
+                showToast(`Fragancia seleccionada: ${perfume}`, 'fa-spa');
+
+                // Actualizar resumen y avanzar
+                updateSummary();
+                showStep(3);
+            }
+        }
+
+        // ============================================================
+        // ACTUALIZAR RESUMEN
+        // ============================================================
+        function updateSummary() {
+            elements.summaryBrand.textContent = state.selectedBrand || '-';
+            elements.summaryPerfume.textContent = state.selectedPerfume || '-';
+        }
+
+        // ============================================================
+        // MANEJAR BÚSQUEDA
+        // ============================================================
+        let searchTimeout = null;
+        elements.searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const query = this.value.trim();
+                if (state.currentStep === 1) {
+                    renderBrands(query);
+                } else if (query.length > 0) {
+                    // Si está en otro paso, buscar y volver al paso 1
+                    renderBrands(query);
+                    showStep(1);
+                }
+            }, 300);
+        });
+
+        // ============================================================
+        // MANEJAR NAVEGACIÓN (Siguiente / Atrás)
+        // ============================================================
+        document.querySelectorAll('.next-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const nextStep = parseInt(this.dataset.step);
+                if (nextStep === 4) {
+                    // Validar paso 3
+                    const size = elements.sizeSelect.value;
+                    const payment = elements.paymentSelect.value;
+                    if (!size) {
+                        showToast('⚠️ Por favor, selecciona un tamaño', 'fa-exclamation-triangle');
+                        return;
+                    }
+                    if (!payment) {
+                        showToast('⚠️ Por favor, selecciona un método de pago', 'fa-exclamation-triangle');
+                        return;
+                    }
+                    state.selectedSize = size;
+                    state.selectedPayment = payment;
+                }
+                showStep(nextStep);
+            });
+        });
+
+        document.querySelectorAll('.back-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const prevStep = parseInt(this.dataset.step);
+                showStep(prevStep);
+            });
+        });
+
+        // ============================================================
+        // ENVIAR PEDIDO POR WHATSAPP
+        // ============================================================
+        elements.sendBtn.addEventListener('click', function() {
+            const name = elements.clientName.value.trim();
+            const phone = elements.clientPhone.value.trim();
+
+            if (!name) {
+                showToast('⚠️ Por favor, ingresa tu nombre', 'fa-exclamation-triangle');
+                elements.clientName.focus();
+                return;
+            }
+            if (!phone) {
+                showToast('⚠️ Por favor, ingresa tu teléfono', 'fa-exclamation-triangle');
+                elements.clientPhone.focus();
+                return;
+            }
+
+            // Construir mensaje
+            const sizeParts = state.selectedSize.split('|');
+            const sizeLabel = sizeParts[0] || '';
+            const sizePrice = sizeParts[1] || '0';
+            
+            let message = `🛍️ *NUEVO PEDIDO - Mis Fragancias*%0A%0A`;
+            message += `👤 *Cliente:* ${name}%0A`;
+            message += `📱 *Teléfono:* ${phone}%0A%0A`;
+            message += `📦 *Detalles del pedido:*%0A`;
+            message += `• *Marca:* ${state.selectedBrand || 'No seleccionada'}%0A`;
+            message += `• *Perfume:* ${state.selectedPerfume || 'No seleccionado'}%0A`;
+            message += `• *Tamaño:* ${sizeLabel}%0A`;
+            message += `• *Precio:* $${parseInt(sizePrice).toLocaleString()}%0A`;
+            message += `• *Pago:* ${state.selectedPayment || 'No seleccionado'}%0A`;
+            message += `• *Fecha:* ${new Date().toLocaleDateString('es-CO')}%0A`;
+            message += `• *Hora:* ${new Date().toLocaleTimeString('es-CO')}%0A%0A`;
+            message += `✅ *¡Gracias por tu compra!*`;
+
+            const url = `https://wa.me/573138094678?text=${message}`;
+            window.open(url, '_blank');
+
+            showToast('📤 Redirigiendo a WhatsApp...', 'fa-whatsapp');
+        });
+
+        // ============================================================
+        // INICIALIZAR
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            renderBrands();
+            showStep(1);
+
+            // Mostrar bienvenida
+            setTimeout(() => {
+                showToast('✨ ¡Bienvenido a Mis Fragancias!', 'fa-wand-magic-sparkles');
+            }, 1000);
+
+            // Efecto de entrada para las tarjetas
+            document.querySelectorAll('.brand-item').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 50 + i * 30);
+            });
+        });
+
+        // ============================================================
+        // TEOREMA: "SELECCIONA CON TECLADO" (Accesibilidad mejorada)
+        // ============================================================
+        // Navegación con teclado en la lista de perfumes
+        elements.perfumeList.addEventListener('keydown', function(e) {
+            const items = this.querySelectorAll('li');
+            const current = document.activeElement;
+            const index = Array.from(items).indexOf(current);
+            
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const next = items[(index + 1) % items.length];
+                if (next) next.focus();
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prev = items[(index - 1 + items.length) % items.length];
+                if (prev) prev.focus();
+            }
+        });
+
+        console.log('🛍️ Mis Fragancias - Tienda Online');
+        console.log('✨ Diseño mejorado y optimizado');
+        console.log('📱 Mobile-First Ready');
+    </script>
+
+</body>
+</html>
