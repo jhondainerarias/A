@@ -2,812 +2,1726 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Fragancias Jhon Dainer Arias</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        /* Variables CSS: Define colores y sombras para fácil modificación */
-:root {
-    --primary-color: #0a0a0a;
-    --secondary-color: #D4AF37; /* Dorado/Amarillo */
-    --text-color: #333;
-    --light-bg: #f4f4f4;
-    --white: #FDFDFD;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos Generales del Cuerpo de la Página */
-body {
-    margin: 0;
-    font-family: 'Open Sans', Arial, sans-serif;
-    line-height: 1.6;
-    background-color: var(--light-bg);
-    color: var(--text-color);
-    min-height: 150vh;
-    padding-top: 0;
-}
-
-/* Contenedor general: Para centrar el contenido y limitar su ancho */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-/* Estilos generales para los Botones */
-.btn {
-    background-color: #0568fd;
-    color: var(--white);
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* --- ESTILOS DEL MENÚ FLOTANTE --- */
-.menu-flotante {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-}
-
-.menu-flotante:hover {
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.55);
-}
-
-.menu-flotante ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.menu-flotante ul li a {
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--primary-color);
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 0.9em;
-    font-weight: 600;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease-in-out;
-    white-space: nowrap;
-}
-
-.menu-flotante ul li a:hover {
-    background: rgba(5, 104, 253, 0.3);
-    color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* --- SECCIÓN HERO (Banner Principal) --- */
-.hero {
-    height: 500px;
-    background-image:url('img/aa2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    color: var(--white);
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); 
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 20px;
-}
-
-.hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    color: var(--white);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-}
-
-.hero-content p {
-    font-size: 1.2em;
-    max-width: 600px;
-    margin: 0 auto 30px;
-    color: var(--white);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-/* --- SECCIÓN QUE LLAMA LA ATENCIÓN (ATTENTION GRABBER) --- */
-.attention-grabber {
-    background: linear-gradient(45deg, #0a0a0a, #02bbffd8, #ddab06, #5c1a5c);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-    padding: 80px 20px;
-    text-align: center;
-    color: var(--white);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.attention-grabber .container {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-}
-
-.attention-icon {
-    font-size: 3.5em;
-    color: var(--white);
-    margin-bottom: 20px;
-    opacity: 0.9;
-    animation: bounceIcon 2s infinite ease-in-out;
-}
-
-@keyframes bounceIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.attention-grabber h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2em;
-    margin-bottom: 15px;
-    line-height: 1.2;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-.attention-grabber h3 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    font-weight: 400;
-}
-
-.attention-grabber p {
-    font-size: 1.3em;
-    margin-bottom: 35px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.9;
-}
-
-.btn-attention {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 18px 40px;
-    font-size: 1.4em;
-    border-radius: 8px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn-attention:hover {
-    background-color: #fcc101;
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-
-
-/* Estilos para los botones de navegación del Carrusel (Nuevos) */
-
-.featured-products {
-    padding: 80px 0; /* Más espacio vertical */
-    text-align: center;
-    background: linear-gradient(to bottom, var(--light-bg) 0%, var(--white) 100%); /* Ligerísimo gradiente */
-}
-
-.featured-products h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em; /* Título más grande */
-    margin-bottom: 50px;
-    color: var(--primary-color);
-    letter-spacing: 1px;
-    position: relative;
-}
-
-.featured-products h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--secondary-color);
-    margin: 15px auto 0;
-    border-radius: 50px;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Tarjetas un poco más anchas si es posible */
-    gap: 40px; /* Más espacio entre tarjetas */
-    margin-top: 40px;
-    justify-content: center;
-}
-
-.product-card {
-    background-color: var(--white);
-    border-radius: 15px; /* Más redondeado */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra suave y amplia */
-    overflow: hidden;
-    text-align: left;
-    /* Usando transform 3D para un mejor rendimiento en la transición */
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    position: relative;
-    border: 1px solid #eee; /* Borde sutil */
-}
-
-.product-card:hover {
-    transform: translateY(-10px) scale(1.02); /* Mayor elevación y ligero crecimiento */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    z-index: 5; /* Asegura que la tarjeta elevada se vea por encima de otras */
-}
-
-.product-card img {
-    width: 100%;
-    height: 300px; /* Imágenes más grandes para destacar el envase */
-    object-fit: cover;
-    display: block;
-    /* Efecto sutil de zoom en hover */
-    transition: transform 0.4s ease;
-}
-
-.product-card:hover img {
-    transform: scale(1.05);
-}
-
-.product-info {
-    padding: 25px;
-}
-
-.product-info h3 {
-    margin-top: 0;
-    font-size: 1.8em; /* Tamaño de título del producto más grande */
-    color: var(--primary-color);
-    text-align: left;
-    font-family: 'Playfair Display', serif;
-    border-bottom: 2px solid var(--secondary-color); /* Línea dorada bajo el título */
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-.product-info p {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.4;
-}
-
-.price {
-    font-size: 1.8em; /* Precio más grande y llamativo */
-    font-weight: 700;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-    display: block;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-}.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: var(--white);
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 1.5em;
-    line-height: 1;
-    transition: background 0.3s;
-    border-radius: 50%;
-}
-
-.carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-#prev-btn { left: 10px; }
-#next-btn { right: 10px; }
-
-
-/* --- SECCIÓN DE PRODUCTOS DESTACADOS (Tamaños Disponibles) --- */
-.featured-products {
-    padding: 60px 0;
-    text-align: center;
-    background-color: var(--light-bg);
-}
-
-.featured-products h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: var(--primary-color);
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-    justify-content: center;
-}
-
-.product-card {
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.product-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-}
-
-.product-info {
-    padding: 20px;
-}
-
-.product-info h3 {
-    margin-top: 0;
-    font-size: 1.5em;
-    color: var(--primary-color);
-    text-align: left;
-    font-family: 'Playfair Display', serif;
-}
-
-.product-info p {
-    font-size: 1.1em;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.price {
-    font-size: 1.4em;
-    font-weight: 700;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-    display: block;
-}
-
-.product-card .btn {
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin-top: 10px;
-}
-
-/* --- SECCIÓN MARQUEE (Marcas) --- */
-.marquee-section {
-    padding: 60px 0;
-    background-color: var(--white);
-    text-align: center;
-}
-
-.marquee-section h2, .marquee-section h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: var(--primary-color);
-}
-
-.marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    padding: 15px 0;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    background-color: var(--light-bg);
-}
-
-.marquee-text {
-    display: inline-flex;
-    animation: marquee 70s linear infinite;
-    will-change: transform;
-}
-
-/* Estilo para las imágenes de las marcas */
-.marquee-text img {
-    height: 120px;
-    width: auto; 
-    object-fit: contain;
-    margin: 0 40px;
-    display: block;
-    opacity: 0.7;
-    transition: opacity 0.7s ease;
-}
-
-.marquee-text img:hover {
-    opacity: 1;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* --- SECCIÓN CONTACTO --- */
-#contacto {
-    padding: 60px 0;
-    text-align: center;
-    background-color: var(--white);
-    border-top: 1px solid #eee;
-}
-
-#contacto h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
-#contacto p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-#contacto a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-#contacto a:hover {
-    color: var(--primary-color);
-}
-
-/* --- PIE DE PÁGINA (FOOTER) --- */
-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 40px 0;
-    text-align: center;
-    margin-top: 0;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9em;
-}
-
-footer .social-links {
-    margin-top: 15px;
-}
-
-footer .social-links a {
-    color: var(--white);
-    font-size: 1.5em;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-footer .social-links a:hover {
-    color: var(--secondary-color);
-}
-
-/* --- BOTÓN FLOTANTE DE COMPRA --- */
-.buy-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease;
-    text-decoration: none;
-}
-
-.buy-float:hover {
-    transform: scale(1.1);
-    background-color: #e6c247;
-}
-
-/* --- DISEÑO RESPONSIVO: Adaptaciones para diferentes tamaños de pantalla --- */
-@media (max-width: 768px) {
-    .menu-flotante {
-        top: 15px;
-        right: 15px;
-        padding: 10px 15px;
-        border-radius: 10px;
-    }
-    .menu-flotante ul {
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-    .menu-flotante ul li a {
-        padding: 6px 10px;
-        font-size: 0.9em;
-    }
-    .hero {
-        height: 400px;
-    }
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-    .hero-content p {
-        font-size: 1em;
-    }
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-    .carousel-item img {
-        height: 300px;
-    }
-    .marquee-text img {
-        height: 80px;
-        margin: 0 20px;
-    }
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="Mis Fragancias - Perfumería de lujo. Descubre fragancias exclusivas creadas con esencias de la más alta calidad.">
+    <title>Mis Fragancias | Perfumería de Lujo</title>
     
-    .attention-grabber {
-    background: linear-gradient(135deg, #f8f9ff, #e1e5ff);
-    text-align: center;
-    padding: 80px 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(42, 42, 143, 0.15);
-    font-family: 'Poppins', sans-serif;
-}
-
-.attention-grabber h2 {
-    color: #1e1e70;
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.attention-grabber h3 {
-    color: #4a4a9f;
-    font-weight: 500;
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.attention-grabber p {
-    color: #555;
-    font-size: 1em;
-    margin-bottom: 35px;
-}
-
-/* 🔥 Botón irresistible */
-.btn-attention {
-    background: linear-gradient(45deg, #ff0080, #ff8c00, #ffcc00);
-    background-size: 300% 300%;
-    color: white;
-    padding: 18px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1em;
-    letter-spacing: 1px;
-    box-shadow: 0 0 25px rgba(255, 128, 0, 0.6);
-    transition: all 0.4s ease;
-    display: inline-block;
-    animation: pulseGlow 2s infinite, gradientShift 5s ease infinite;
-}
-
-/* ✨ Efecto hover (brillo al pasar el mouse) */
-.btn-attention:hover {
-    transform: scale(1.1) rotate(-1deg);
-    box-shadow: 0 0 35px rgba(255, 102, 0, 0.8);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
-}
-
-/* 🌈 Efecto movimiento del gradiente */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* 💖 Efecto pulsación */
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 15px rgba(255, 128, 0, 0.6); }
-    50% { box-shadow: 0 0 40px rgba(255, 0, 128, 0.9); }
-    100% { box-shadow: 0 0 15px rgba(255, 128, 0, 0.6); }
-}
-
-    /* Elimino las animaciones y estilos de la sección attention-grabber que duplicaste */
-}
-
-@media (max-width: 480px) {
-    .menu-flotante {
-        top: 10px;
-        right: 10px;
-        padding: 8px 10px;
-    }
-    .menu-flotante ul {
-        gap: 5px;
-    }
-    .hero-content h1 {
-        font-size: 2em;
-    }
-    .buy-float {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
-    }
-    .marquee-text img {
-        height: 60px;
-        margin: 0 15px;
-    }
-    .attention-grabber h1 {
-        font-size: 2em;
-    }
-}
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 (Gratis) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ============================================================
+               TOKENS DE DISEÑO (Variables CSS)
+               ============================================================ */
+        :root {
+            /* Colores */
+            --color-primary: #0a0a0a;
+            --color-secondary: #D4AF37;
+            --color-secondary-light: #F4D03F;
+            --color-secondary-dark: #B8960F;
+            --color-background: #faf8f5;
+            --color-surface: #ffffff;
+            --color-text-primary: #0a0a0a;
+            --color-text-secondary: #666666;
+            --color-text-muted: #999999;
+            --color-text-inverse: #ffffff;
+            --color-border: #e8e3da;
+            --color-shadow: rgba(10, 10, 10, 0.08);
+            
+            /* Tipografía */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            /* Espaciado (8px grid) */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --space-4xl: 80px;
+            
+            /* Tamaños de fuente */
+            --text-xs: 11px;
+            --text-sm: 13px;
+            --text-base: 15px;
+            --text-lg: 18px;
+            --text-xl: 22px;
+            --text-2xl: 28px;
+            --text-3xl: 36px;
+            --text-4xl: 44px;
+            --text-5xl: 56px;
+            
+            /* Bordes */
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 9999px;
+            
+            /* Sombras */
+            --shadow-sm: 0 2px 10px rgba(10, 10, 10, 0.06);
+            --shadow-md: 0 4px 20px rgba(10, 10, 10, 0.08);
+            --shadow-lg: 0 10px 40px rgba(10, 10, 10, 0.12);
+            --shadow-xl: 0 20px 60px rgba(10, 10, 10, 0.16);
+            --shadow-glow: 0 0 60px rgba(212, 175, 55, 0.15);
+            
+            /* Transiciones */
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+            --duration-fast: 200ms;
+            --duration-base: 350ms;
+            --duration-slow: 600ms;
+        }
+        
+        /* ============================================================
+               RESET Y BASE
+               ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            background-color: var(--color-background);
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding-bottom: 80px;
+            /* espacio para nav inferior */
+            overflow-x: hidden;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            outline: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        /* ============================================================
+               UTILIDADES
+               ============================================================ */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--color-secondary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--color-primary);
+        }
+        
+        .section-title .highlight {
+            color: var(--color-secondary);
+        }
+        
+        .section-subtitle {
+            font-size: var(--text-base);
+            color: var(--color-text-secondary);
+            max-width: 520px;
+            margin-top: var(--space-sm);
+        }
+        
+        .divider {
+            width: 48px;
+            height: 3px;
+            background: var(--color-secondary);
+            border-radius: var(--radius-full);
+            margin-top: var(--space-md);
+        }
+        
+        /* ============================================================
+               BOTONES
+               ============================================================ */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            color: var(--color-primary);
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+            border-radius: var(--radius-full);
+            transition: all var(--duration-base) var(--ease-spring);
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.30);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary));
+            opacity: 0;
+            transition: opacity var(--duration-base) ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.40);
+        }
+        
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+        
+        .btn-primary span,
+        .btn-primary i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            color: var(--color-text-inverse);
+            border: 1.5px solid rgba(255, 255, 255, 0.20);
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all var(--duration-base) var(--ease-spring);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.40);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            color: var(--color-primary);
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-base) var(--ease-spring);
+            background: var(--color-surface);
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* ============================================================
+               HEADER SUPERIOR (Top Bar)
+               ============================================================ */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: var(--space-sm) var(--space-lg);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-bar .brand {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--color-text-inverse);
+            letter-spacing: -0.5px;
+        }
+        
+        .top-bar .brand .accent {
+            color: var(--color-secondary);
+        }
+        
+        .top-bar .brand small {
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 400;
+            color: var(--color-text-muted);
+            letter-spacing: 0.1em;
+            display: block;
+            margin-top: -2px;
+        }
+        
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .top-bar-actions button {
+            color: rgba(255, 255, 255, 0.70);
+            font-size: var(--text-lg);
+            transition: color var(--duration-fast) ease;
+            position: relative;
+            padding: var(--space-xs);
+        }
+        
+        .top-bar-actions button:hover {
+            color: var(--color-secondary);
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -2px;
+            right: -4px;
+            width: 18px;
+            height: 18px;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--color-primary);
+            background: var(--color-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* ============================================================
+               HERO
+               ============================================================ */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px var(--space-lg) var(--space-3xl);
+            background: linear-gradient(160deg, #0a0a0a 0%, #1a1a2e 40%, #16213e 100%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 107, 107, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+        
+        .hero-glow--1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+            background: rgba(212, 175, 55, 0.08);
+            animation: glowFloat 8s ease-in-out infinite alternate;
+        }
+        
+        .hero-glow--2 {
+            width: 300px;
+            height: 300px;
+            bottom: -50px;
+            left: -50px;
+            background: rgba(212, 175, 55, 0.06);
+            animation: glowFloat 10s ease-in-out infinite alternate-reverse;
+        }
+        
+        @keyframes glowFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(30px, -30px) scale(1.2);
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 720px;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-xs) var(--space-lg);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: var(--radius-full);
+            background: rgba(212, 175, 55, 0.06);
+            backdrop-filter: blur(4px);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--color-secondary);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+        
+        .hero-badge span {
+            font-size: var(--text-xs);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-secondary);
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 10vw, 72px);
+            font-weight: 700;
+            line-height: 1.05;
+            color: var(--color-text-inverse);
+            margin-bottom: var(--space-md);
+        }
+        
+        .hero-title .gradient-text {
+            display: block;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light), var(--color-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: var(--text-lg);
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 480px;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.7;
+        }
+        
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .hero-actions .btn-primary {
+            font-size: var(--text-base);
+            padding: 16px 40px;
+        }
+        
+        .hero-actions .btn-primary i {
+            font-size: var(--text-lg);
+        }
+        
+        .hero-actions .btn-secondary {
+            font-size: var(--text-sm);
+            padding: 12px 32px;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-xs);
+            color: rgba(255, 255, 255, 0.25);
+            font-size: var(--text-xs);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: scrollBounce 2.5s ease-in-out infinite;
+        }
+        
+        .scroll-indicator .mouse {
+            width: 22px;
+            height: 34px;
+            border: 2px solid rgba(255, 255, 255, 0.20);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            padding-top: 6px;
+        }
+        
+        .scroll-indicator .mouse .wheel {
+            width: 3px;
+            height: 8px;
+            background: var(--color-secondary);
+            border-radius: var(--radius-full);
+            animation: scrollWheel 2s ease-in-out infinite;
+        }
+        
+        @keyframes scrollWheel {
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(8px);
+                opacity: 0.3;
+            }
+        }
+        
+        @keyframes scrollBounce {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-6px);
+            }
+        }
+        
+        /* ============================================================
+               SECCIÓN: FRAGANCIAS DESTACADAS
+               ============================================================ */
+        .featured-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-background);
+        }
+        
+        .featured-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .featured-header .section-title {
+            font-size: clamp(30px, 6vw, 44px);
+        }
+        
+        .featured-header .divider {
+            margin: var(--space-md) auto 0;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+        
+        @media (min-width: 480px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-xl);
+            }
+        }
+        
+        .product-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-base) var(--ease-spring);
+            position: relative;
+            border: 1px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(212, 175, 55, 0.15);
+        }
+        
+        .product-card-image {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #f0ede8;
+        }
+        
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--duration-slow) var(--ease-smooth);
+        }
+        
+        .product-card:hover .product-card-image img {
+            transform: scale(1.06);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            padding: 4px 14px;
+            font-size: var(--text-xs);
+            font-weight: 700;
+            color: var(--color-primary);
+            background: var(--color-secondary);
+            border-radius: var(--radius-full);
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+        
+        .product-quick-view {
+            position: absolute;
+            bottom: var(--space-md);
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            padding: 10px 24px;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--color-text-inverse);
+            background: rgba(10, 10, 10, 0.70);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            transition: all var(--duration-base) var(--ease-spring);
+            z-index: 2;
+            white-space: nowrap;
+        }
+        
+        .product-card:hover .product-quick-view {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .product-card-body {
+            padding: var(--space-lg);
+        }
+        
+        .product-card-body .product-name {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .product-card-body .product-desc {
+            font-size: var(--text-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+        }
+        
+        .product-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-price {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+        
+        .product-add-btn {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-primary);
+            color: var(--color-text-inverse);
+            border-radius: 50%;
+            transition: all var(--duration-base) var(--ease-spring);
+            font-size: var(--text-base);
+        }
+        
+        .product-add-btn:hover {
+            background: var(--color-secondary);
+            transform: scale(1.10);
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+        }
+        
+        /* ============================================================
+               SECCIÓN: EXPERIENCIA (Story)
+               ============================================================ */
+        .experience-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .experience-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 70% 30%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            position: relative;
+            z-index: 2;
+        }
+        
+        @media (min-width: 768px) {
+            .experience-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                gap: var(--space-3xl);
+            }
+        }
+        
+        .experience-text .section-badge {
+            color: var(--color-secondary-light);
+        }
+        
+        .experience-text .section-title {
+            color: var(--color-text-inverse);
+            font-size: clamp(30px, 5vw, 44px);
+        }
+        
+        .experience-text .section-title .highlight {
+            color: var(--color-secondary-light);
+        }
+        
+        .experience-text p {
+            color: rgba(255, 255, 255, 0.65);
+            margin-top: var(--space-md);
+            font-size: var(--text-base);
+            line-height: 1.8;
+            max-width: 480px;
+        }
+        
+        .experience-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        
+        .stat-item .stat-number {
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            color: var(--color-secondary-light);
+        }
+        
+        .stat-item .stat-label {
+            font-size: var(--text-sm);
+            color: rgba(255, 255, 255, 0.40);
+            margin-top: 2px;
+        }
+        
+        .experience-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .experience-image .quote-ring {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 2px solid rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.04), transparent 70%);
+        }
+        
+        @media (min-width: 768px) {
+            .experience-image .quote-ring {
+                width: 360px;
+                height: 360px;
+            }
+        }
+        
+        .experience-image .quote-ring .quote-text {
+            font-family: var(--font-display);
+            font-size: clamp(20px, 3vw, 30px);
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.08);
+            text-align: center;
+            line-height: 1.3;
+            max-width: 200px;
+        }
+        
+        .experience-image .quote-ring .deco-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--color-secondary);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        .experience-image .quote-ring .deco-dot:nth-child(2) {
+            top: 10%;
+            right: 10%;
+        }
+        .experience-image .quote-ring .deco-dot:nth-child(3) {
+            bottom: 10%;
+            left: 10%;
+        }
+        .experience-image .quote-ring .deco-dot:nth-child(4) {
+            top: 50%;
+            left: -4%;
+        }
+        .experience-image .quote-ring .deco-dot:nth-child(5) {
+            bottom: 50%;
+            right: -4%;
+        }
+        
+        /* ============================================================
+               SECCIÓN: TESTIMONIOS (Social Proof)
+               ============================================================ */
+        .testimonials-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-surface);
+        }
+        
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+        
+        @media (min-width: 640px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .testimonial-card {
+            background: var(--color-background);
+            padding: var(--space-xl);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            transition: all var(--duration-base) var(--ease-spring);
+        }
+        
+        .testimonial-card:hover {
+            border-color: rgba(212, 175, 55, 0.20);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        
+        .testimonial-stars {
+            color: var(--color-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-sm);
+            letter-spacing: 2px;
+        }
+        
+        .testimonial-text {
+            font-size: var(--text-base);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: var(--text-lg);
+            flex-shrink: 0;
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            font-size: var(--text-sm);
+        }
+        
+        .testimonial-role {
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+        }
+        
+        /* ============================================================
+               SECCIÓN: CONTACTO
+               ============================================================ */
+        .contact-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-background);
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-content .section-title {
+            font-size: clamp(28px, 5vw, 40px);
+        }
+        
+        .contact-content p {
+            color: var(--color-text-secondary);
+            margin-top: var(--space-sm);
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        
+        @media (min-width: 480px) {
+            .contact-links {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 12px 28px;
+            background: var(--color-surface);
+            border-radius: var(--radius-full);
+            border: 1px solid var(--color-border);
+            font-weight: 500;
+            font-size: var(--text-sm);
+            transition: all var(--duration-base) var(--ease-spring);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .contact-link:hover {
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-link i {
+            font-size: var(--text-lg);
+        }
+        
+        .contact-link .whatsapp-icon {
+            color: #25D366;
+        }
+        
+        /* ============================================================
+               FOOTER
+               ============================================================ */
+        .site-footer {
+            background: var(--color-primary);
+            padding: var(--space-xl) 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .site-footer .brand {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-text-inverse);
+        }
+        
+        .site-footer .brand .accent {
+            color: var(--color-secondary);
+        }
+        
+        .site-footer p {
+            color: rgba(255, 255, 255, 0.30);
+            font-size: var(--text-sm);
+            margin-top: var(--space-sm);
+        }
+        
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.30);
+            transition: all var(--duration-fast) ease;
+            font-size: var(--text-base);
+        }
+        
+        .footer-socials a:hover {
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* ============================================================
+               NAVEGACIÓN INFERIOR (Mobile Bottom Nav)
+               ============================================================ */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: var(--space-sm) 0 var(--space-md);
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.04);
+        }
+        
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+            transition: color var(--duration-fast) ease;
+            padding: var(--space-xs) var(--space-sm);
+            position: relative;
+            min-width: 56px;
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+        }
+        
+        .bottom-nav-item i {
+            font-size: var(--text-xl);
+            transition: transform var(--duration-fast) var(--ease-spring);
+        }
+        
+        .bottom-nav-item.active {
+            color: var(--color-secondary);
+        }
+        
+        .bottom-nav-item.active i {
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        .bottom-nav-item .nav-badge {
+            position: absolute;
+            top: -2px;
+            right: 4px;
+            width: 18px;
+            height: 18px;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--color-primary);
+            background: var(--color-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .bottom-nav-item--center {
+            position: relative;
+            top: -12px;
+        }
+        
+        .bottom-nav-item--center .nav-center-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-size: var(--text-xl);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+            transition: all var(--duration-base) var(--ease-spring);
+        }
+        
+        .bottom-nav-item--center .nav-center-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45);
+        }
+        
+        /* ============================================================
+               RESPONSIVE AJUSTES FINOS
+               ============================================================ */
+        @media (max-width: 479px) {
+            .top-bar .brand {
+                font-size: var(--text-base);
+            }
+            .top-bar .brand small {
+                font-size: 9px;
+            }
+            .hero-title {
+                font-size: 34px;
+            }
+            .hero-subtitle {
+                font-size: var(--text-base);
+            }
+            .hero-actions .btn-primary {
+                font-size: var(--text-sm);
+                padding: 14px 28px;
+            }
+            .product-card-body {
+                padding: var(--space-md);
+            }
+            .product-price {
+                font-size: var(--text-lg);
+            }
+            .experience-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-sm);
+            }
+            .stat-item .stat-number {
+                font-size: var(--text-xl);
+            }
+            .bottom-nav-item {
+                font-size: 9px;
+                min-width: 44px;
+            }
+            .bottom-nav-item i {
+                font-size: var(--text-base);
+            }
+            .bottom-nav-item--center .nav-center-btn {
+                width: 48px;
+                height: 48px;
+                font-size: var(--text-base);
+            }
+        }
+        
+        @media (min-width: 769px) {
+            body {
+                padding-bottom: 0;
+            }
+            .bottom-nav {
+                display: none;
+            }
+        }
+        
+        /* ============================================================
+               ANIMACIONES DE ENTRADA (Scroll)
+               ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+        }
+        
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-delay-1 {
+            transition-delay: 100ms;
+        }
+        .reveal-delay-2 {
+            transition-delay: 200ms;
+        }
+        .reveal-delay-3 {
+            transition-delay: 300ms;
+        }
+        
+        /* ============================================================
+               TOAST NOTIFICACIÓN (Feedback)
+               ============================================================ */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            padding: 12px 24px;
+            background: var(--color-primary);
+            color: var(--color-text-inverse);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transition: all var(--duration-base) var(--ease-spring);
+            z-index: 200;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .toast i {
+            margin-right: var(--space-sm);
+            color: var(--color-secondary);
+        }
     </style>
 </head>
 <body>
 
-    
+    <!-- ============================================================
+    TOP BAR (Header fijo)
+    ============================================================ -->
+    <header class="top-bar" role="banner">
+        <a href="#" class="brand" aria-label="Mis Fragancias - Inicio">
+            Mis<span class="accent">Fragancias</span>
+            <small>Jhon Dainer Arias</small>
+        </a>
+        <div class="top-bar-actions">
+            <button aria-label="Buscar fragancias" title="Buscar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button aria-label="Abrir carrito" title="Carrito" id="cartToggle">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge" id="cartCount">1</span>
+            </button>
+        </div>
+    </header>
 
-    <section class="attention-grabber"> 
-    <div class="container">
-        <h2>Mis Fragancias Jhon Dainer Arias</h2>
-        <h3>Preparamos fragancias, en <em>singles</em> genéricos, de bajo costo para mayor economía. ¡La fragancia, el envase y el tamaño que elijas!</h3>
-        <p>No dejes pasar la oportunidad de adquirir tus fragancias favoritas con un descuento increíble. ¡Stock limitado!</p>
-        <a href="clientes.html" class="btn btn-attention"> 
-    <i class="fa-solid fa-gift"> </i> ¡Regístrate y gana 10% de descuento!
-    </a>
-    </a></div>
-   <br>
-     <a href="compras.html" class="btn btn-attention"><i class="fa-solid fa-cart-shopping"></i> Hacer una compra
-    </a>
-    </div>
-    <br> 
-    <br>
-     <a href="catalogo.html" class="btn btn-attention"><i class="fa-solid fa-book-open"></i> Ver catalogo
-    </a>
-    </div>
-</section>
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="inicio" aria-label="Bienvenida">
+<div>
 
+            <h1 class="hero-title">
+               los mejores perfumes 
+                <span class="gradient-text">con los mejores precios</span>
+            </h1>
 
-        <section id="contacto">
-            <div class="container">
-                <h2>Contáctanos</h2>
-                <p>¿Tienes alguna pregunta o necesitas ayuda? No dudes en contactarnos.</p>
-                <p>
-                    Llámanos a: <a href="tel:+573138094678">+57 313 809 4678</a>
-                    <span style="margin: 0 10px;">|</span>
-                    WhatsApp: <a href="https://wa.me/573138094678" target="_blank"><i class="fab fa-whatsapp"></i> Chatear</a>
-                </p>
+            <p class="hero-subtitle">
+                Fragancias exclusivas con esencias de alta calidad que perduran.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#productos" class="btn-primary">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Descubrir Colección</span>
+                </a>
+                
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
+    <!-- ============================================================
+    PRODUCTOS DESTACADOS
+    ============================================================ -->
+    <section class="featured-section" id="productos" aria-label="Fragancias destacadas">
         <div class="container">
-            <p>&copy; 2025 Mis Fragancias Jhon Dainer Arias. <br> Ibagué, Tolima.</p>
-            <div class="social-links">
-                <a href="https://wa.me/573138094678" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <div class="featured-header reveal">
+                <span class="section-badge">Colección Destacada</span>
+                <h2 class="section-title">
+                    las  mejores <span class="highlight">marcas</span>
+                </h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Producto 1 -->
+                <article class="product-card reveal reveal-delay-1">
+                    <div class="product-card-image">
+                        <img src="1.png" alt="Essence Noir - Perfume elegante en frasco oscuro" loading="lazy">
+                        <span class="product-badge">para dama</span>
+                            Vista Rápida
+                        </button>
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-name">mas 20 marcas</h3>
+                        <p class="product-desc">mas de 200 referencias </p>
+                        <div class="product-card-footer">
+                            <span class="product-price">desde $25.000</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card reveal reveal-delay-2">
+                    <div class="product-card-image">
+                        <img src="2.png" alt="Floral Dream - Perfume floral en frasco rosa" loading="lazy">
+                        <span class="product-badge">caballero</span>
+                        
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-name">casi todas las marcas</h3>
+                        <p class="product-desc">tres presentaciones </p>
+                        <div class="product-card-footer">
+                            <span class="product-price">pequeño $25mil</span><br>
+                            <span class="product-price">mediano $40mil</span><br>
+                            <span class="product-price">grande $75mil</span><br>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    EXPERIENCIA (Story)
+    ============================================================ -->
+  
+
+    <!-- ============================================================
+    TESTIMONIOS
+    ============================================================ -->
+    <section class="testimonials-section" aria-label="Testimonios de clientes">
+        <div class="container">
+            <div class="testimonials-header reveal">
+                <span class="section-badge">Testimonios</span>
+                <h2 class="section-title">
+                    Lo que dicen <span class="highlight">nuestros clientes</span>
+                </h2>
+                <div class="divider" style="margin: var(--space-md) auto 0;"></div>
+            </div>
+
+            <div class="testimonials-grid">
+                <article class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "La calidad de las fragancias es excepcional. Compré (asad lattafa) erba pura  y
+                        recibí muchos cumplidos. ¡Totalmente recomendado!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">FT</div>
+                        <div>
+                            <div class="testimonial-name">FREDI TRUJILLO</div>
+                            <div class="testimonial-role">Cliente nuevo</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "siempre compro la misma (rapf  lauren) pero es que me encanta y la duracion de la fragancia todo el dia"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MA</div>
+                        <div>
+                            <div class="testimonial-name">MARCELA ALDANA</div>
+                            <div class="testimonial-role">Cliente desde 2024</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card reveal reveal-delay-3">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "mis recomendas scandal de jean paul, ohm yambal,  y  mi favorito invictus victori de pacco rabanne. La duración es excelente y
+                        el aroma es único. ¡Gracias por tan buen producto!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J O</div>
+                        <div>
+                            <div class="testimonial-name">JANER ORTIZ</div>
+                            <div class="testimonial-role">Amante de los  perfumes</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CONTACTO
+    ============================================================ -->
+    <section class="contact-section" id="contacto" aria-label="Contacto">
+        <div class="container">
+            <div class="contact-content reveal">
+                <span class="section-badge">Contáctanos</span>
+                <h2 class="section-title">
+                    ¿Listo para <span class="highlight">encontrar tu fragancia</span>?
+                </h2>
+                <p>
+                    ¿Tienes alguna pregunta o necesitas ayuda? Estamos aquí para ti.
+                </p>
+
+                <div class="contact-links">
+                    <a href="tel:+573138094678" class="contact-link">
+                        <i class="fa-solid fa-phone"></i>
+                        +57 313 809 4678
+                    </a>
+                    <a href="https://wa.me/573138094678" target="_blank" rel="noopener" class="contact-link">
+                        <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
+                        WhatsApp
+                    </a>
+                    <a href="#" class="contact-link" onclick="mostrarToast('📧 Escríbenos a: fragancias@jda.com')">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="brand">
+                Mis<span class="accent">Fragancias</span>
+            </div>
+            <p>&copy; 2025 Jhon Dainer Arias - Ibagué, Tolima</p>
+            <div class="footer-socials">
+                <a href="https://wa.me/573138094678" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="#" aria-label="Instagram" onclick="mostrarToast('📸 Síguenos en Instagram @misfragancias')">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="Facebook" onclick="mostrarToast('👍 Danos like en Facebook')">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
             </div>
         </div>
     </footer>
+
+    <!-- ============================================================
+    NAVEGACIÓN INFERIOR (Mobile)
+    ============================================================ -->
+    <!-- ============================================================
+    NAVEGACIÓN INFERIOR (Mobile) - CON ENLACES
+    ============================================================ -->
+<nav class="bottom-nav" role="navigation" aria-label="Navegación principal móvil">
+    
+    <!-- Inicio -->
+    <a href="index.html" class="bottom-nav-item active" aria-current="page">
+        <i class="fa-solid fa-house"></i>
+        <span>Inicio</span>
+    </a>
+    
+    <!-- Buscar -->
+    <a href="buscar.html" class="bottom-nav-item">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Buscar</span>
+    </a>
+    
+    <!-- Carrito (Centro) -->
+    <a href="carrito.html" class="bottom-nav-item bottom-nav-item--center" aria-label="Abrir carrito">
+        <span class="nav-center-btn">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </span>
+        <span class="nav-badge" id="navCartBadge">3</span>
+    </a>
+    
+    <!-- Favoritos -->
+    <a href="favoritos.html" class="bottom-nav-item">
+        <i class="fa-regular fa-heart"></i>
+        <span>Favoritos</span>
+    </a>
+    
+    <!-- Cuenta / Clientes -->
+    <a href="clientes.html" class="bottom-nav-item">
+        <i class="fa-regular fa-user"></i>
+        <span>Cuenta</span>
+    </a>
+    
+</nav>
+
+    <!-- ============================================================
+    TOAST (Notificación)
+    ============================================================ -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toastMessage">¡Agregado al carrito!</span>
+    </div>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
     <script>
-        const carouselWrapper = document.getElementById('carouselWrapper');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const items = document.querySelectorAll('.carousel-item');
-        const totalItems = items.length;
-        let currentIndex = 0;
-        let autoSlideInterval;
+        // ============================================================
+        // CARRITO (Estado simple)
+        // ============================================================
+        let cart = [
+            { name: 'Essence Noir', price: 180000 },
+            { name: 'Floral Dream', price: 150000 },
+            { name: 'Oud Royal', price: 250000 }
+        ];
 
-        function updateCarousel() {
-            const offset = -currentIndex * 100;
-            carouselWrapper.style.transform = `translateX(${offset}%)`;
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % totalItems;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-            updateCarousel();
-        }
-
-        // Navegación manual
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetAutoSlide();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetAutoSlide();
-        });
-
-        // Autodeslizamiento
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(nextSlide, 5000); // Cambia cada 5 segundos
-        }
-
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-
-        // Iniciar el carrusel al cargar la página
-        document.addEventListener('DOMContentLoaded', () => {
-            if (totalItems > 1) { // Solo si hay más de un elemento
-                startAutoSlide();
+        function actualizarContadorCarrito() {
+            const count = cart.length;
+            const badge = document.getElementById('cartCount');
+            const navBadge = document.getElementById('navCartBadge');
+            if (badge) {
+                badge.textContent = count;
+                badge.style.display = count > 0 ? 'flex' : 'none';
             }
-        });
+            if (navBadge) {
+                navBadge.textContent = count;
+                navBadge.style.display = count > 0 ? 'flex' : 'none';
+            }
+        }
 
+        function agregarCarrito(nombre, precio) {
+            cart.push({ name: nombre, price: precio });
+            actualizarContadorCarrito();
+            mostrarToast('🛍️ ' + nombre + ' agregado al carrito');
+        }
+
+        // ============================================================
+        // TOAST
+        // ============================================================
+        let toastTimeout = null;
+
+        function mostrarToast(mensaje) {
+            const toast = document.getElementById('toast');
+            const msgEl = document.getElementById('toastMessage');
+            if (!toast || !msgEl) return;
+
+            msgEl.textContent = mensaje;
+
+            // Limpiar timeout anterior
+            if (toastTimeout) {
+                clearTimeout(toastTimeout);
+                toast.classList.remove('show');
+            }
+
+            // Forzar reflow para reiniciar animación
+            void toast.offsetWidth;
+
+            toast.classList.add('show');
+
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+                toastTimeout = null;
+            }, 2800);
+        }
+
+        // ============================================================
+        // SCROLL REVEAL (Animaciones al hacer scroll)
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            function checkReveals() {
+                const windowHeight = window.innerHeight;
+                const threshold = 120;
+
+                reveals.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const isVisible = rect.top < windowHeight - threshold;
+
+                    if (isVisible) {
+                        el.classList.add('visible');
+                    } else {
+                        // Opcional: remover clase para re-animar si queremos
+                        // Pero mejor mantener visible una vez que aparece
+                        // el.classList.remove('visible');
+                    }
+                });
+            }
+
+            // Chequear al cargar
+            checkReveals();
+
+            // Chequear al hacer scroll (con throttle)
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        checkReveals();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Chequear al redimensionar
+            window.addEventListener('resize', checkReveals);
+
+            // ============================================================
+            // BOTÓN CARRITO (Top Bar)
+            // ============================================================
+            const cartToggle = document.getElementById('cartToggle');
+            if (cartToggle) {
+                cartToggle.addEventListener('click', function() {
+                    const count = cart.length;
+                    if (count === 0) {
+                        mostrarToast('🛒 Tu carrito está vacío');
+                    } else {
+                        const total = cart.reduce((sum, item) => sum + item.price, 0);
+                        const nombres = cart.map(item => item.name).join(', ');
+                        mostrarToast('🛒 ' + count + ' productos: ' + nombres + ' | Total: $' + total.toLocaleString());
+                    }
+                });
+            }
+
+            // ============================================================
+            // BOTÓN CARRITO (Nav inferior)
+            // ============================================================
+            const navCartBtn = document.getElementById('navCartBtn');
+            if (navCartBtn) {
+                navCartBtn.addEventListener('click', function() {
+                    const count = cart.length;
+                    if (count === 0) {
+                        mostrarToast('🛒 Tu carrito está vacío');
+                    } else {
+                        const total = cart.reduce((sum, item) => sum + item.price, 0);
+                        const nombres = cart.map(item => item.name).join(', ');
+                        mostrarToast('🛒 ' + count + ' productos: ' + nombres + ' | Total: $' + total.toLocaleString());
+                    }
+                });
+            }
+
+            // ============================================================
+            // NAVEGACIÓN INFERIOR (Estado activo)
+            // ============================================================
+            const navItems = document.querySelectorAll('.bottom-nav-item:not(.bottom-nav-item--center)');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // ============================================================
+            // INICIALIZAR CONTADOR
+            // ============================================================
+            actualizarContadorCarrito();
+
+            // ============================================================
+            // PEQUEÑO DETALLE: Mostrar bienvenida
+            // ============================================================
+            setTimeout(() => {
+                mostrarToast('✨ Bienvenido a Mis Fragancias');
+            }, 1200);
+        });
     </script>
 
 </body>
